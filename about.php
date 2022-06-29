@@ -30,6 +30,8 @@
 		</div>
 	</div>
 
+	<!-- Some comment sab ni anj -->
+
 	<!-- about cookie co. -->
 	<div class="about">
 		<h1>About Cookie Co.</h1>
