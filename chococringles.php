@@ -30,7 +30,7 @@
 		</div>
 	</div>
 
-	
+	<!-- hha some comments -->
 
 	<!-- single products -->
 	<div class="single-product">
