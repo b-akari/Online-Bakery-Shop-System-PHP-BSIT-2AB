@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Menu</title>
+	<title>Cake All Products</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,28 +19,10 @@
 	<!-- featured menu (cake, cookie, pastry) -->
 	<div class="menu">
 		<div class="cake">
-			<h2>CAKE</h2>
-			<div class="col-1">
-				<img src="images/carrot_cake.png">
-    					<div class="middle">
-    						<a href="carrot.php" class="text2">Add to Cart</a>
-  						</div>
-			</div>
-			<div class="col-1">
-				<img src="images/chocofudge_cake.png">
-				<div class="middle">
-    						<a href="chocofudge.php" class="text2">Add to Cart</a>
-  						</div>
-			</div>
-			<div class="col-1">
-				<img src="images/marble_cake.png">
-				<div class="middle">
-    						<a href="marble.php" class="text2">Add to Cart</a>
-  						</div>
-			</div>
+			<h2>BEST SELLER</h2>
 			<div class="col-1">
 				<img src="images/rvelvet_cake.png">
-				<div class="middle">
+    					<div class="middle">
     						<a href="redvelvet.php" class="text2">Add to Cart</a>
   						</div>
 			</div>
@@ -56,66 +38,34 @@
     						<a href="ube.php" class="text2">Add to Cart</a>
   						</div>
 			</div>
-
-		</div>
-		
-	</div>
-
-	<div class="menu">
-		<div class="cookie">
-			<h2>COOKIE</h2>
-			<div class="col-2">
+			<div class="col-1">
 				<img src="images/chocochip_cookie.png">
 				<div class="middle">
     						<a href="chocochip.php" class="text2">Add to Cart</a>
   						</div>
 			</div>
-			<div class="col-2">
+			<div class="col-1">
 				<img src="images/chococringles_cookie.png">
 				<div class="middle">
     						<a href="chococringles.php" class="text2">Add to Cart</a>
   						</div>
 			</div>
-			<div class="col-2">
-				<img src="images/gingerbread_cookie.png">
-				<div class="middle">
-    						<a href="gingerbread.php" class="text2">Add to Cart</a>
-  						</div>
-			</div>
-		</div>
-	
-	</div>
-
-	<div class="menu">
-		<div class="pastry">
-			<h2>PASTRY</h2>
-			<div class="col-3">
+			<div class="col-1">
 				<img src="images/eggtart_pastry.png">
 				<div class="middle">
     						<a href="eggtart.php" class="text2">Add to Cart</a>
   						</div>
 			</div>
-			<div class="col-3">
-				<img src="images/macaron_pastry.png">
-				<div class="middle">
-    						<a href="macaron.php" class="text2">Add to Cart</a>
-  						</div>
-			</div>
-			<div class="col-3">
-				<img src="images/pretzel_pastry.png">
-				<div class="middle">
-    						<a href="pretzel.php" class="text2">Add to Cart</a>
-  						</div>
-			</div>
-		</div>
 
+		</div>
+		<br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br>
 	</div>
-	<br><br><br><br><br><br>
 
 
 	<!-- footer -->
 	<?php include 'components/footer.php' ?>
-
 	<script src="menu.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container nav-component">
   <div class="navbar">
     <div class="logo">
       <a href="index.php"><img src="images/logo.png" width="200px"></a>
@@ -6,8 +6,7 @@
     <nav>
       <ul id="MenuItems">
         <li><a href="menu.php">Menu</a></li>
-        <li><a href="#">Best Seller</a></li>
-        <li><a href="#">Customize</a></li>
+        <li><a href="bestseller.php">Best Seller</a></li>
       </ul>
     </nav>
     <a href="#"><img src="images/cart.png" width="25px" height="25px"></a>
