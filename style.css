@@ -61,7 +61,7 @@ a{
 .container{
 	margin: auto;
 	position: sticky;
-	top: 0;
+	top: 0px;
 }
 .container img{
 	margin-right: 20px;
@@ -191,15 +191,14 @@ a{
 
 /* single-product */
 .single-product{
-	margin-top: 60px;
+	margin-top: 6%;
 	margin-left: 25%;
 }
 .single-product .col-2 img{
 	padding: 0;
 }
 .single-product h1{
-	margin-top: 70px;
-	text-align: ;
+	margin-top: 60px;
 }
 .single-product .col-2{
 	padding: 20px;
@@ -212,6 +211,7 @@ a{
 	border: 1px solid #f59498;
 	position: absolute;
 	margin-top: 50px;
+
 }
 .single-product input{
 	width: 50px;
@@ -223,12 +223,24 @@ a{
 	margin-top: 110px;
 }
 .single-product .seemore-btn {
-	margin-right: 60px;
+	margin-right: 65px;
 }
 input:focus{
 	outline: none;
 }
 
+/* for cart */
+.cart{
+	position: fixed;
+	top: 0;
+
+	width: 360px;
+	min-height: 100vh;
+	padding: 20px;
+	background: #f59498;
+	box-shadow: -2px 0 4px hsl(0, 4%, 15% / -10%);
+
+}
 
 /* for testimonies */
 .feedbacks{
@@ -258,8 +270,6 @@ input:focus{
 .testimonies .col-4:hover{
 	transform: translateY(-10px);
 }
-
-/* for footer */
 .footer-container{
 	background-color: #2E2625;
 	margin-top: 350px;
@@ -326,7 +336,7 @@ h1{
 	margin: 20px;
 	background: white;
 	box-shadow: 0.6em 0.6em 1.2em #DFBB9D;
-							-0.5em -0.5em 1em #fffff;
+	
 	border-radius: 20px;
 }
 .container-team .card .content{
@@ -392,3 +402,6 @@ h1{
 	font-weight: normal;
 	color: #2E2625;
 }
+ .nav-component {
+ 	z-index: 9999;
+ }

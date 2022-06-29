@@ -12,23 +12,8 @@
 </head>
 <body>
 	<!-- navigation bar -->
-	<div class="container">
-		<div class="navbar">
-		<div class="logo">
-			<a href="index.php"><img src="images/logo.png" width="200px"></a>
-		</div>
-		<nav>
-			<ul id="MenuItems">
-				<li><a href="menu.php">Menu</a></li>
-				<li><a href="#">Best Seller</a></li>
-				<li><a href="#">Customize</a></li>
-			</ul>
-		</nav>
-		<a href="#"><img src="images/cart.png" width="25px" height="25px"></a>
-		<a href=""><i class="fa-solid fa-user"></i></a>
-		<img src="images/menu.png" class="menu_icon" onclick="menutoggle()">
-		</div>
-	</div>
+	<?php include 'components/navbar.php' ?>
+
 
 	<div class="menu">
 		<div class="pastry">
@@ -56,33 +41,8 @@
 	</div>
 
 	<!-- footer -->
-	<div class="footer-container">
-		<div class="footer">
-			<div class="footer-1">
-				<h1>From our oven to your door.</h1>
-				<h3>REACH US</h3>
-				<div class="social-media">
-					<a href="#"><i class="fa-brands fa-instagram"></i></a>
-					<a href="#"><i class="fa-brands fa-facebook"></i></a>
-					<a href="#"><i class="fa-brands fa-twitter"></i></a>
-				</div>
-			</div>
-			<div class="footer-2">
-				<h3>OUR COMMUNITY</h3>
-				<a href="#">Registration</a><br>
-				<a href="webteam.php">Our Team</a><br>
-				<a href="#">Website Feedback</a><br>
-			</div>
-			<div class="footer-3">
-				<h3>SEEK FAQS</h3>
-				<a href="about.php">About Cookie Co.</a><br>
-				<a href="faqs.php">Most FAQs</a><br>
-				<a href="#">Orders</a><br>
-				<a href="#">Careers</a><br>
-				<a href="#">Delivery</a><br>
-			</div>
-		</div>
-	</div>
+	<?php include 'components/footer.php' ?>
+
 	<script src="menu.js"></script>
 </body>
 </html>
