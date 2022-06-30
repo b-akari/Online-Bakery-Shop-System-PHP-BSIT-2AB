@@ -6,13 +6,12 @@
     <a href="#" data-target="mobile-demo" class="sidenav-trigger">
       <i class="material-icons">menu</i>
     </a>
-    <ul class="right ">
-      <li>
+    <ul class="right">
+      <li class="sidenav-trigger" data-target="add-to-cart">
         <a href="#">
           <i class="material-icons">
             shopping_cart
           </i>
-
         </a>
       </li>
     </ul>
@@ -77,4 +76,5 @@
   <li><a href="#!">Pastries</a></li>
 </ul>
 <script>
+M.AutoInit()
 </script>

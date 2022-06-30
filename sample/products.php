@@ -9,20 +9,21 @@
   <title>Document</title>
 
   <style>
-    .card-btn {
-      background-color: black;
-    }
+  .card-btn {
+    background-color: black;
+  }
 
-    .card-btn:hover {
-      background-color: white;
-      color: black;
-    }
+  .card-btn:hover {
+    background-color: white;
+    color: black;
+  }
   </style>
 
 </head>
 
 <body>
-  <?php include '../components/Navbar.php' ?>
+  <?php include '../components/navbar.php' ?>
+  <?php include 'cart.php' ?>
 
 
   <div class="row">
@@ -34,7 +35,7 @@
       <div class="col s12">
 
         <div class="row">
-          <div class="col s12 m4">
+          <div class="col s12 m6 l4">
             <!-- Product card -->
             <div class="card" style="background-color: #f59498; border-radius: 20px;">
               <div class="card-content">
@@ -42,7 +43,8 @@
                 <span class="card-title" style="font-size: 25px; font-weight:bold;">
                   Carrot Cake
                 </span>
-                <select class="browser-default" style="width: 50%; height: 35px; font-size: 13px; background-color: #f59498;">
+                <select class="browser-default"
+                  style="width: 50%; height: 35px; font-size: 13px; background-color: #f59498;">
                   <option value="" disabled selected>Select Size</option>
                   <option value="1">6 x 8 = 600</option>
                   <option value="2">8 x 10 =* 1.2</option>
@@ -56,17 +58,6 @@
             </div>
           </div>
 
-
-
-
-
-
-
-
-
-
-
-
           <!-- row -->
         </div>
 
@@ -76,7 +67,7 @@
     </div>
   </div>
 
-  <?php include '../components/Footer.php' ?>
+  <?php include '../components/footer.php' ?>
 
 </body>
 
