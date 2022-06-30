@@ -1,4 +1,4 @@
-<div class="container nav-component">
+<div class="container">
   <div class="navbar">
     <div class="logo">
       <a href="index.php"><img src="images/logo.png" width="200px"></a>
