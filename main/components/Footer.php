@@ -1,27 +1,30 @@
-<div class="footer-container">
-  <div class="footer">
-    <div class="footer-1">
-      <h1>From our oven to your door.</h1>
-      <h3>REACH US</h3>
-      <div class="social-media">
-        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#"><i class="fa-brands fa-facebook"></i></a>
-        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+<footer class="page-footer primary-color">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h4 class="white-text">From our oven to your door.</h4>
+        <h5>OUR COMMUNITY</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="#">Registration</a></li>
+          <li><a class="grey-text text-lighten-3" href="#">Our Tem</a></li>
+        </ul>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">SEEK FAQS</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="#!">About Cookie Co.</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Most FAQs</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Orders</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Careers</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Delivery</a></li>
+        </ul>
       </div>
     </div>
-    <div class="footer-2">
-      <h3>OUR COMMUNITY</h3>
-      <a href="#">Registration</a><br>
-      <a href="webteam.php">Our Team</a><br>
-      <a href="feedbacks.php">Customer Feedback</a><br>
-    </div>
-    <div class="footer-3">
-      <h3>SEEK FAQS</h3>
-      <a href="about.php">About Cookie Co.</a><br>
-      <a href="faqs.php">Most FAQs</a><br>
-      <a href="#">Orders</a><br>
-      <a href="#">Careers</a><br>
-      <a href="#">Delivery</a><br>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      © 2014 Copyright Text
+      <a class="grey-text text-lighten-4 right" href="#!">Customer Feedback</a>
     </div>
   </div>
-</div>
+</footer>

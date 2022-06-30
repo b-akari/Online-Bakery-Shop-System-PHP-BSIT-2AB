@@ -18,8 +18,10 @@
 
 <body>
   <?php include 'components/Navbar.php' ?>
+  <div class="container">
 
-  <!-- <?php include 'components/Footer.php' ?> -->
+  </div>
+  <?php include 'components/Footer.php' ?>
 
   <script>
   M.AutoInit()
