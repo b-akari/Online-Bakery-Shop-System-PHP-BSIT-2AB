@@ -62,6 +62,10 @@ $title = $_REQUEST["title"];
     var elems = document.querySelectorAll('select');
     var instances = M.FormSelect.init(elems);
   });
+  $("form").submit(function(event) {
+
+    event.preventDefault();
+  });
   </script>
 </body>
 
