@@ -29,6 +29,8 @@ if (isset($_SESSION["username"])) {
     color: black;
   }
   </style>
+
+  <script src="js/product-list.js"></script>
   <script src="js/user.js"></script>
 </head>
 
@@ -57,7 +59,6 @@ if (isset($_SESSION["username"])) {
   </div>
 
   <?php include 'components/footer.php' ?>
-  <script src="js/product-list.js"></script>
 
   <script>
   displayAllProducts();

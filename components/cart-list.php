@@ -31,9 +31,30 @@ if (isset($_SESSION["username"])) {
   <div id="cart-list">
 
   </div>
-
+  <li id="display-price">
+    <div class="row">
+      <div class="col s6 right-align">
+        Total Price:
+      </div>
+      <div class="col s6">
+        ₱
+        <span id="total-price-cart">
+          100
+        </span>
+      </div>
+      <div class="col s6 right-align">
+        Total Quantity:
+      </div>
+      <div class="col s6">
+        <span id="total-quantity-cart">
+          100
+        </span>
+        packages
+      </div>
+    </div>
+  </li>
   <li>
-    <a class="pink lighten-4 waves-effect btn" style="color:brown;">Buy All Now</a>
+    <a id="buy-all-btn" class="pink lighten-4 waves-effect btn" style="color:brown;" href="checkout.php">Buy All Now</a>
   </li>
 </ul>
 

@@ -31,6 +31,7 @@ $title = $_REQUEST["title"];
     color: black;
   }
   </style>
+  <script src="js/user.js"></script>
 
 </head>
 
@@ -62,7 +63,6 @@ $title = $_REQUEST["title"];
 
   <?php include 'components/footer.php' ?>
   <script src="js/product-list.js"></script>
-  <script src="js/user.js"></script>
 
   <script>
   displayCategory("<?php echo $type ?>")

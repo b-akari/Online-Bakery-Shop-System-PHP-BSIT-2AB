@@ -22,7 +22,7 @@ if (session_status() === PHP_SESSION_NONE) {
       </li>
     </ul>
     <ul class="right hide-on-med-and-down">
-      <li><a href="All-products.php">All products</a></li>
+      <li><a href="All-products.php">All Products</a></li>
       <!-- <li><a href="#">Best Seller</a></li> -->
       <!-- Dropdown Trigger -->
       <li>
@@ -57,7 +57,7 @@ if (session_status() === PHP_SESSION_NONE) {
   <div class="divider"></div>
 
   <li><a href="index.php">Home</a></li>
-  <li><a href="#">Menu</a></li>
+  <li><a href="All-products.php">All Products</a></li>
   <!-- <li><a href="#">Best Seller</a></li> -->
 
   <li>
@@ -66,15 +66,9 @@ if (session_status() === PHP_SESSION_NONE) {
         <a href="#" class="collapsible-header">Category</a>
         <div class="collapsible-body" style="display: block;">
           <ul>
-            <li>
-              <a href="#">Cakes</a>
-            </li>
-            <li>
-              <a href="#">Cookies</a>
-            </li>
-            <li>
-              <a href="#">Pastries</a>
-            </li>
+            <li><a href="category.php?type=cake&title=Cakes">Cakes</a></li>
+            <li><a href="category.php?type=cookie&title=Cookies">Cookies</a></li>
+            <li><a href="category.php?type=pastry&title=Pastries">Pastries</a></li>
           </ul>
         </div>
       </li>

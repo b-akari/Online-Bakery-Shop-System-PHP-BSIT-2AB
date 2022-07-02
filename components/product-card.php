@@ -24,8 +24,10 @@ if (isset($_SESSION["username"])) {
 <div class="col s12 m6 l4">
   <div class="card hoverable" style="background-color: #f59498; border-radius: 20px;">
     <div class="card-content">
-      <img src="assets/product-img/<?php echo $category . "/" . $img_name ?>" style=" width: 100%; border-radius:
+      <a class="waves-effect" href="product.php?product_ID=<?php echo $id ?>">
+        <img src="assets/product-img/<?php echo $category . "/" . $img_name ?>" style=" width: 100%; border-radius:
         20px;">
+      </a>
       <span class="card-title center" style="font-size: 25px; font-weight:bold;">
         <?php echo $name . " " . $category ?>
       </span>
@@ -59,7 +61,7 @@ if (isset($_SESSION["username"])) {
     <div class="card-action" style="border-radius: 20px;">
       <div class="row">
         <div class="col s5 offset-s1">
-          <a class="waves-effect waves-light btn-small card-btn" href="#">
+          <a class="waves-effect waves-light btn-small card-btn" href="product.php?product_ID=<?php echo $id ?>">
             See more details
           </a>
         </div>
@@ -93,6 +95,5 @@ $("#<?php echo $id ?>").submit(function(event) {
   }
 
   addToCart(<?php echo $user_ID ?>, data[1].value, data[2].value);
-  console.log($("#<?php echo $id ?>").serializeArray());
 });
 </script>
