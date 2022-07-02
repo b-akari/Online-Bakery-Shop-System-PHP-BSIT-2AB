@@ -178,7 +178,7 @@ if (isset($_SESSION["username"])) {
               </div>
               <div class="col s12">
                 <p>
-                  Total Merchandise Price: ₱<span id="total-price-payment">400</span>
+                  Total Merchandise Price: ₱<span id="merchandise-price-payment">400</span>
                 </p>
                 <p>
                   Shipping Price : ₱50
@@ -217,13 +217,17 @@ if (isset($_SESSION["username"])) {
     } else if (this.value == "cc") {
       $("#credit-card-form").show()
       $("#gcash-form").hide()
+
     } else if (this.value == "gcash") {
       $("#gcash-form").show()
       $("#credit-card-form").hide()
+
     }
   });
   $("form").submit((event) => {
     event.preventDefault();
+    let data_input = $("form").serializeArray();
+
     console.log($("form").serializeArray());
 
   })

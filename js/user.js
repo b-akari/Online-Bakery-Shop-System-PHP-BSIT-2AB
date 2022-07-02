@@ -22,6 +22,9 @@ const deleteFromCart = (addToCart_ID, user_ID) => {
     .done((res)=> {
       M.toast({html: res})
       getCart(user_ID);
+      getTotal(user_ID)
+      displayCheckout(user_ID)
+
     })
 }
 
@@ -127,6 +130,16 @@ const displayTotalCheckout = (user_ID) => {
     .done(res =>{
       $("#checkout-data").append(res);
     })
+    $("#merchandise-price-payment").html(
+      `<b>
+      ${json.final_price}
+      </b>`
+      );
+    let total = parseFloat(json.final_price) + 50;
+    $("#total-price-payment").html(
+      `<b>${total}</b>`
+      );
+    
 
     
   })
