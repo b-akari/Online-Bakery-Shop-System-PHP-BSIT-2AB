@@ -40,7 +40,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
       <?php } else { ?>
 
-      <li><a href="login.php"><?php echo $_SESSION["username"] ?></a></li>
+      <li><a href="login.php">Account: <?php echo $_SESSION["username"] ?></a></li>
       <li><a href="#" id="logout-btn">Logout</a></li>
       <?php } ?>
     </ul>
@@ -81,13 +81,14 @@ if (session_status() === PHP_SESSION_NONE) {
     </ul>
   </li>
   <div class="divider"></div>
+
   <?php if (!isset($_SESSION["username"])) { ?>
   <li><a href="register.php">Register</a></li>
   <li><a href="login.php">Login</a></li>
 
   <?php } else { ?>
 
-  <li><a href="login.php"><?php echo $_SESSION["username"] ?></a></li>
+  <li><a href="#">Account: <?php echo $_SESSION["username"] ?></a></li>
   <li><a href="#" id="logout-btn">Logout</a></li>
   <?php } ?>
 </ul>

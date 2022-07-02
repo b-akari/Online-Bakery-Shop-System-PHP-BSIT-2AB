@@ -42,7 +42,17 @@ const getCart = (user_ID) => {
       })
     })
   } else {
-    $("#cart-list").html("Please log-in first!");
+    $("#cart-list").html(`<li class="center">
+                <h5>
+                  <i class="material-icons">
+                    priority_high
+                  </i>
+                  Log-in to order
+                  <i class="material-icons">
+                    priority_high
+                  </i>
+                </h5>
+              </li>`);
   }
    
 }
