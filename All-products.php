@@ -1,3 +1,13 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
+if (isset($_SESSION["username"])) {
+  $user_ID = $_SESSION["ID"];
+} else {
+  $user_ID = "null";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,8 +18,6 @@
   <title>All Products</title>
 
   <?php include 'components/libraries.php' ?>
-
-
   <style>
   .card-btn {
     background-color: black;
@@ -21,12 +29,12 @@
     color: black;
   }
   </style>
-
+  <script src="js/user.js"></script>
 </head>
 
 <body>
   <?php include 'components/navbar.php' ?>
-  <?php include 'components/cart.php' ?>
+  <?php include 'components/cart-list.php' ?>
 
 
   <div class="row">
@@ -39,8 +47,6 @@
 
         <div class="row" id="product-list">
 
-
-
           <!-- row -->
         </div>
 
@@ -52,6 +58,7 @@
 
   <?php include 'components/footer.php' ?>
   <script src="js/product-list.js"></script>
+
   <script>
   displayAllProducts();
 

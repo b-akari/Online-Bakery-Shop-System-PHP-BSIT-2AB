@@ -19,12 +19,14 @@ if (session_status() === PHP_SESSION_NONE) {
     background-color: #f59498 !important;
   }
   </style>
+  <script src="js/user.js"></script>
 </head>
 
 <body>
   <?php $home = 1;
   include 'components/navbar.php' ?>
-  <?php include 'components/cart.php' ?>
+  <?php include 'components/cart-list.php' ?>
+
   <div class="parallax-container" style="height: 10vh ;">
     <div class="parallax"><img src="assets/web-img/home-background.png"></div>
   </div>
@@ -48,6 +50,9 @@ if (session_status() === PHP_SESSION_NONE) {
     <div class="parallax"><img src="assets/web-img/home-background.png"></div>
   </div>
   <?php include 'components/footer.php' ?>
+
+  <script src="js/product-list.js"></script>
+
 
   <script>
   M.AutoInit()

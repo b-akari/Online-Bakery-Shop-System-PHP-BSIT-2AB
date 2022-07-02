@@ -1,4 +1,10 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
+?>
+
+<?php
 $type = $_REQUEST["type"];
 $title = $_REQUEST["title"];
 ?>
@@ -30,7 +36,7 @@ $title = $_REQUEST["title"];
 
 <body>
   <?php include 'components/navbar.php' ?>
-  <?php include 'components/cart.php' ?>
+  <?php include 'components/cart-list.php' ?>
 
 
   <div class="row">
@@ -56,6 +62,8 @@ $title = $_REQUEST["title"];
 
   <?php include 'components/footer.php' ?>
   <script src="js/product-list.js"></script>
+  <script src="js/user.js"></script>
+
   <script>
   displayCategory("<?php echo $type ?>")
   document.addEventListener('DOMContentLoaded', function() {

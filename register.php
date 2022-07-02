@@ -10,12 +10,13 @@
 
   </style>
   <?php include 'components/libraries.php' ?>
+  <script src="js/user.js"></script>
 
 </head>
 
 <body>
   <?php include 'components/navbar.php' ?>
-  <?php include 'components/cart.php' ?>
+  <?php include 'components/cart-list.php' ?>
 
   <div class="container">
     <div class="row">

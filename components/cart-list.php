@@ -1,3 +1,13 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
+if (isset($_SESSION["username"])) {
+  $user_ID = $_SESSION["ID"];
+} else {
+  $user_ID = "null";
+}
+?>
 <ul id="add-to-cart" class="sidenav collection ">
   <!-- close icon -->
   <li>
@@ -18,23 +28,12 @@
     <div class="divider"></div>
   </li>
   <!-- add-to-cart itesms -->
-  <li class="collection-item avatar">
-    <img src="assets/product-img/cake/carrot.png" alt="" class="circle">
+  <div id="cart-list">
 
-    <span class="title" style="font-weight: bold;">Chocolate fudge cake </span>
-
-    <p>
-      <span class="type">8 x 10</span><br>
-      <span class="price">$500</span><br>
-      <input style="width: 50px;height: 20px;" type="number" value="1">
-    </p>
-    <a href="#!" class="secondary-content ">
-      <i class="material-icons" style="margin-right: -70px; ">delete</i>
-    </a>
-  </li>
+  </div>
 
   <li>
-    <a class="pink lighten-4 waves-effect btn" style="color:brown;">Buy Now</a>
+    <a class="pink lighten-4 waves-effect btn" style="color:brown;">Buy All Now</a>
   </li>
 </ul>
 
@@ -45,4 +44,5 @@ document.addEventListener('DOMContentLoaded', function() {
     edge: 'right'
   });
 });
+getCart("<?php echo $user_ID ?>");
 </script>

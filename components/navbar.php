@@ -105,6 +105,7 @@ $("#logout-btn").click((event) => {
   $.get("DB/user.php?type=logout")
     .done(res => {
       window.location = "index.php";
+      getCart("null");
       M.toast({
         html: res
       });

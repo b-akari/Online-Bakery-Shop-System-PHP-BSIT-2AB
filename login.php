@@ -10,12 +10,13 @@
 
   </style>
   <?php include 'components/libraries.php' ?>
+  <script src="js/user.js"></script>
 
 </head>
 
 <body>
   <?php include 'components/navbar.php' ?>
-  <?php include 'components/cart.php' ?>
+  <?php include 'components/cart-list.php' ?>
 
   <div class="container">
     <div class="row" style="height: 65vh;">
@@ -54,6 +55,9 @@
 
 
   <?php include 'components/footer.php' ?>
+
+  <script src="js/product-list.js"></script>
+
   <script>
   $("form").submit((event) => {
     event.preventDefault();

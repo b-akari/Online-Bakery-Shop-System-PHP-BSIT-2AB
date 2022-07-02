@@ -35,3 +35,7 @@ const displayCategory = (type) => {
    
   })
 }
+
+const getAddToCartItems = (user_ID) =>{
+  console.log("getaddtocartitmes executed")
+}

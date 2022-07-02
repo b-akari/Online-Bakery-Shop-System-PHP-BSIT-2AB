@@ -55,6 +55,7 @@ switch ($type) {
         echo "password";
         break;
       }
+      $_SESSION["ID"] = $data["ID"];
       $_SESSION["username"] = $data["username"];
       $_SESSION["email"] = $data["email"];
 
