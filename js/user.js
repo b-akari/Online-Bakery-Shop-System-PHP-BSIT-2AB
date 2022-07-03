@@ -181,6 +181,7 @@ const checkOutItems = (input_data, user_ID) => {
 
   $.post("DB/checkout.php", data)
   .done(res =>{
+    console.log(res)
     if(res == "success") {
       window.location = "thank-you.php";
     }

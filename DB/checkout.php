@@ -99,7 +99,7 @@ if ($cartItems->num_rows > 0) {
 
 // DELETE all add-to-cart items from current user
 $deleteCartItems = "DELETE FROM add_to_cart WHERE user_ID = $user_ID;";
-if ($conn->query($sql) !== TRUE) {
+if ($conn->query($deleteCartItems) !== TRUE) {
   echo "Error deleting cart items: " . $conn->error;
 }
 
