@@ -6,9 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>All Products</title>
-  <style>
-
-  </style>
+  <link rel="stylesheet" href="css/theme.css">
   <?php include 'components/libraries.php' ?>
   <script src="js/user.js"></script>
 
@@ -50,7 +48,7 @@
         </div>
         <div class="row">
           <div class="col s12 m8 offset-m2 l6 offset-l3">
-            <button class="btn waves-effect waves-light" type="submit" name="action">
+            <button class="btn waves-effect waves-light" type="submit" name="action" style="background-color: #f59498;">
               Submit
               <i class="material-icons right">send</i>
             </button>
@@ -69,55 +67,55 @@
   <?php include 'components/footer.php' ?>
 
   <script>
-  $("form").submit((event) => {
-    event.preventDefault();
-    let inputs = $("#register-form").serializeArray();
-    let [username, email, password, repassword] = [...inputs]
+    $("form").submit((event) => {
+      event.preventDefault();
+      let inputs = $("#register-form").serializeArray();
+      let [username, email, password, repassword] = [...inputs]
 
-    if (password.value != repassword.value) {
-      M.toast({
-        html: "Password doesn't match: please try again..."
+      if (password.value != repassword.value) {
+        M.toast({
+          html: "Password doesn't match: please try again..."
+        })
+        return
+      }
+      let params = $.param({
+        type: "registration_validation",
+        username: username.value,
+        email: email.value
       })
-      return
-    }
-    let params = $.param({
-      type: "registration_validation",
-      username: username.value,
-      email: email.value
-    })
-    $.get(
-        `DB/user.php?${params}`)
-      .done((result) => {
-        switch (result) {
-          case "email":
-            M.toast({
-              html: "Email already exist!"
-            });
-            break;
-          case "username":
-            M.toast({
-              html: "Username already exist!"
-            });
-            break;
-          case "null":
-            let data = {
-              type: "register",
-              username: username.value,
-              email: email.value,
-              password: password.value,
-            }
-            $.post(
-              "DB/user.php",
-              data
-            )
-            M.toast({
-              html: "Successfully registered!"
-            });
-            window.location.href = "login.php";
-            break;
-        }
-      })
-  });
+      $.get(
+          `DB/user.php?${params}`)
+        .done((result) => {
+          switch (result) {
+            case "email":
+              M.toast({
+                html: "Email already exist!"
+              });
+              break;
+            case "username":
+              M.toast({
+                html: "Username already exist!"
+              });
+              break;
+            case "null":
+              let data = {
+                type: "register",
+                username: username.value,
+                email: email.value,
+                password: password.value,
+              }
+              $.post(
+                "DB/user.php",
+                data
+              )
+              M.toast({
+                html: "Successfully registered!"
+              });
+              window.location.href = "login.php";
+              break;
+          }
+        })
+    });
   </script>
 
 </body>

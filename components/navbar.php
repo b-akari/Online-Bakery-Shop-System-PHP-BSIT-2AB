@@ -5,7 +5,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 ?>
 <nav>
-  <div class="nav-wrapper primary-color">
+  <div class="nav-wrapper" style="background-color:  #f59498;">
     <a href="index.php" class="brand-logo center">
       <img src="assets/images/logo.png" alt="" style="height: 5vh ;">
     </a>
@@ -35,13 +35,13 @@ if (session_status() === PHP_SESSION_NONE) {
 
     <ul class="hide-on-med-and-down account-status">
       <?php if (!isset($_SESSION["username"])) { ?>
-      <li><a href="register.php">Register</a></li>
-      <li><a href="login.php">Login</a></li>
+        <li><a href="register.php">Register</a></li>
+        <li><a href="login.php">Login</a></li>
 
       <?php } else { ?>
 
-      <li><a href="login.php">Account: <?php echo $_SESSION["username"] ?></a></li>
-      <li><a href="#" id="logout-btn">Logout</a></li>
+        <li><a href="login.php">Account: <?php echo $_SESSION["username"] ?></a></li>
+        <li><a href="#" id="logout-btn">Logout</a></li>
       <?php } ?>
     </ul>
   </div>
@@ -77,33 +77,33 @@ if (session_status() === PHP_SESSION_NONE) {
   <div class="divider"></div>
 
   <?php if (!isset($_SESSION["username"])) { ?>
-  <li><a href="register.php">Register</a></li>
-  <li><a href="login.php">Login</a></li>
+    <li><a href="register.php">Register</a></li>
+    <li><a href="login.php">Login</a></li>
 
   <?php } else { ?>
 
-  <li><a href="#">Account: <?php echo $_SESSION["username"] ?></a></li>
-  <li><a href="#" id="logout-btn">Logout</a></li>
+    <li><a href="#">Account: <?php echo $_SESSION["username"] ?></a></li>
+    <li><a href="#" id="logout-btn">Logout</a></li>
   <?php } ?>
 </ul>
 
 <!-- Dropdown Structure -->
 <ul id="category" class="dropdown-content">
-  <li><a href="category.php?type=cake&title=Cakes">Cakes</a></li>
-  <li><a href="category.php?type=cookie&title=Cookies">Cookies</a></li>
-  <li><a href="category.php?type=pastry&title=Pastries">Pastries</a></li>
+  <li><a href="category.php?type=cake&title=Cakes" style="color: #f59498;">Cakes</a></li>
+  <li><a href="category.php?type=cookie&title=Cookies " style="color: #f59498;">Cookies</a></li>
+  <li><a href="category.php?type=pastry&title=Pastries" style="color: #f59498;">Pastries</a></li>
 </ul>
 
 <script>
-M.AutoInit()
-$("#logout-btn").click((event) => {
-  $.get("DB/user.php?type=logout")
-    .done(res => {
-      window.location = "index.php";
-      getCart("null");
-      M.toast({
-        html: res
-      });
-    })
-});
+  M.AutoInit()
+  $("#logout-btn").click((event) => {
+    $.get("DB/user.php?type=logout")
+      .done(res => {
+        window.location = "index.php";
+        getCart("null");
+        M.toast({
+          html: res
+        });
+      })
+  });
 </script>

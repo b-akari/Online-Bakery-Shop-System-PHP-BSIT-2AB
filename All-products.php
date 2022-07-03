@@ -16,18 +16,22 @@ if (isset($_SESSION["username"])) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>All Products</title>
-
+  <link rel="stylesheet" href="css/theme.css">
   <?php include 'components/libraries.php' ?>
   <style>
-  .card-btn {
-    background-color: black;
-  }
+    .card-btn {
+      background-color: black;
+    }
 
-  .card-btn:hover,
-  .card-btn:focus {
-    background-color: white;
-    color: black;
-  }
+    .card-btn:hover,
+    .card-btn:focus {
+      background-color: white;
+      color: black;
+    }
+
+    .primary-color {
+      background-color: #f59498 !important;
+    }
   </style>
 
   <script src="js/product-list.js"></script>
@@ -43,7 +47,7 @@ if (isset($_SESSION["username"])) {
     <div class="container">
 
       <div class="col s12 center">
-        <h1 style="font-weight: bold;">All Products</h1>
+        <h2 style="font-weight: bold; color: #f59498;">All Products</h2>
       </div>
       <div class="col s12">
 
@@ -61,12 +65,12 @@ if (isset($_SESSION["username"])) {
   <?php include 'components/footer.php' ?>
 
   <script>
-  displayAllProducts();
+    displayAllProducts();
 
-  document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('select');
-    var instances = M.FormSelect.init(elems);
-  });
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('select');
+      var instances = M.FormSelect.init(elems);
+    });
   </script>
 </body>
 

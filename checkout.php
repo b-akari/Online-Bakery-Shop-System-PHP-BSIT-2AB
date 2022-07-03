@@ -20,12 +20,13 @@ if (isset($_SESSION["username"])) {
   <title>All Products</title>
 
   <?php include 'components/libraries.php' ?>
-
+  <link rel="stylesheet" href="css/theme.css">
   <style>
-  .input-disabled {
-    color: black !important;
-  }
+    .input-disabled {
+      color: black !important;
+    }
   </style>
+  <link rel="stylesheet" href="css/theme.css">
 
   <script src="js/product-list.js"></script>
   <script src="js/user.js"></script>
@@ -189,24 +190,21 @@ if (isset($_SESSION["username"])) {
                   Total Merchandise Price:
                   <span class="input-field inline">
                     <i class="material-icons prefix">currency_ruble</i>
-                    <input type="number" name="merchandise-price-payment" class="input-disabled"
-                      id="merchandise-price-payment" value="0" readonly="true">
+                    <input type="number" name="merchandise-price-payment" class="input-disabled" id="merchandise-price-payment" value="0" readonly="true">
                   </span>
                 </p>
                 <p>
                   Shipping Fee :
                   <span class="input-field inline">
                     <i class="material-icons prefix">currency_ruble</i>
-                    <input type="number" name="shipping-fee" class="input-disabled" id="shipping-fee" value="50"
-                      readonly="true">
+                    <input type="number" name="shipping-fee" class="input-disabled" id="shipping-fee" value="50" readonly="true">
                   </span>
                 </p>
                 <p>
                   Total Price :
                   <span class="input-field inline">
                     <i class="material-icons prefix">currency_ruble</i>
-                    <input type="number" name="total-price-payment" class="input-disabled" id="total-price-payment"
-                      readonly="true">
+                    <input type="number" name="total-price-payment" class="input-disabled" id="total-price-payment" readonly="true">
                   </span>
                 </p>
               </div>
@@ -246,96 +244,96 @@ if (isset($_SESSION["username"])) {
   <?php include 'components/footer.php' ?>
 
   <script>
-  let currentUserID = <?php echo $user_ID ?>;
-  displayCheckout(currentUserID);
-  var elems = document.querySelectorAll('.modal');
-  var instances = M.Modal.init(elems);
-  $("#credit-card-form").hide()
-  $("#gcash-form").hide()
+    let currentUserID = <?php echo $user_ID ?>;
+    displayCheckout(currentUserID);
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems);
+    $("#credit-card-form").hide()
+    $("#gcash-form").hide()
 
-  $('input[type=radio][name=payment-method]').change(function() {
-    if (this.value == "cod") {
-      $("#credit-card-form").hide()
-      $("#gcash-form").hide()
+    $('input[type=radio][name=payment-method]').change(function() {
+      if (this.value == "cod") {
+        $("#credit-card-form").hide()
+        $("#gcash-form").hide()
 
-    } else if (this.value == "cc") {
-      $("#credit-card-form").show()
-      $("#gcash-form").hide()
+      } else if (this.value == "cc") {
+        $("#credit-card-form").show()
+        $("#gcash-form").hide()
 
-    } else if (this.value == "gcash") {
-      $("#gcash-form").show()
-      $("#credit-card-form").hide()
+      } else if (this.value == "gcash") {
+        $("#gcash-form").show()
+        $("#credit-card-form").hide()
 
-    }
-  });
-  $("form").submit((event) => {
-    event.preventDefault();
-    let data_input = $("form").serializeArray();
-
-    // basic input handling
-    let basic_inputs = ["name", "contact-number", "address"];
-    let inputs = []
-    for (let i = 0; i < basic_inputs.length; i++) {
-      if ($(`#${basic_inputs[i]}`).val().trim() == "") {
-        inputs.push(basic_inputs[i]);
       }
-    }
-    if (inputs.length) {
+    });
+    $("form").submit((event) => {
+      event.preventDefault();
+      let data_input = $("form").serializeArray();
 
-      inputs = inputs.map(val => val.replace('-', ' '))
-      M.toast({
-        html: `Please enter your ${inputs.join(", ")} first!`
-      })
-      return;
-    }
-
-    // payment input handling
-    let payment_method = $('input[type=radio][name=payment-method]:checked').val();
-    switch (payment_method) {
-      case 'cc':
-        let card_inputs = ["card-number", "card-expiry-date", "card-cvv"];
-        let card_empty_inputs = []
-        for (let i = 0; i < card_inputs.length; i++) {
-          if ($(`#${card_inputs[i]}`).val().trim() == "") {
-            card_empty_inputs.push(card_inputs[i]);
-          }
+      // basic input handling
+      let basic_inputs = ["name", "contact-number", "address"];
+      let inputs = []
+      for (let i = 0; i < basic_inputs.length; i++) {
+        if ($(`#${basic_inputs[i]}`).val().trim() == "") {
+          inputs.push(basic_inputs[i]);
         }
-        if (card_empty_inputs.length) {
-          card_empty_inputs = card_empty_inputs.map(val => val.replace('card', "").replaceAll('-', ' '))
-          M.toast({
-            html: `Please enter your ${card_empty_inputs.join(", ")} in "Card Details"!`
-          })
-          return;
-        }
-        break;
-      case 'gcash':
-        let gcash_inputs = ["gcash-name", "gcash-number"];
-        let gcash_empty_inputs = []
-        for (let i = 0; i < gcash_inputs.length; i++) {
-          if ($(`#${gcash_inputs[i]}`).val().trim() == "") {
-            gcash_empty_inputs.push(gcash_inputs[i]);
-          }
-        }
-        if (gcash_empty_inputs.length) {
-          gcash_empty_inputs = gcash_empty_inputs.map(val => val.replace('gcash', "").replaceAll('-', ' '))
-          M.toast({
-            html: `Please enter your ${gcash_empty_inputs.join(", ")} in "Gcash Details"!`
-          })
-          return;
-        }
-        break;
-    }
-    // input formatting (trimming whitespaces)
-    let data = $("form").serializeArray().map(val =>
-      val = {
-        ...val,
-        value: val.value.trim()
       }
-    )
+      if (inputs.length) {
 
-    checkOutItems(data, currentUserID);
+        inputs = inputs.map(val => val.replace('-', ' '))
+        M.toast({
+          html: `Please enter your ${inputs.join(", ")} first!`
+        })
+        return;
+      }
 
-  })
+      // payment input handling
+      let payment_method = $('input[type=radio][name=payment-method]:checked').val();
+      switch (payment_method) {
+        case 'cc':
+          let card_inputs = ["card-number", "card-expiry-date", "card-cvv"];
+          let card_empty_inputs = []
+          for (let i = 0; i < card_inputs.length; i++) {
+            if ($(`#${card_inputs[i]}`).val().trim() == "") {
+              card_empty_inputs.push(card_inputs[i]);
+            }
+          }
+          if (card_empty_inputs.length) {
+            card_empty_inputs = card_empty_inputs.map(val => val.replace('card', "").replaceAll('-', ' '))
+            M.toast({
+              html: `Please enter your ${card_empty_inputs.join(", ")} in "Card Details"!`
+            })
+            return;
+          }
+          break;
+        case 'gcash':
+          let gcash_inputs = ["gcash-name", "gcash-number"];
+          let gcash_empty_inputs = []
+          for (let i = 0; i < gcash_inputs.length; i++) {
+            if ($(`#${gcash_inputs[i]}`).val().trim() == "") {
+              gcash_empty_inputs.push(gcash_inputs[i]);
+            }
+          }
+          if (gcash_empty_inputs.length) {
+            gcash_empty_inputs = gcash_empty_inputs.map(val => val.replace('gcash', "").replaceAll('-', ' '))
+            M.toast({
+              html: `Please enter your ${gcash_empty_inputs.join(", ")} in "Gcash Details"!`
+            })
+            return;
+          }
+          break;
+      }
+      // input formatting (trimming whitespaces)
+      let data = $("form").serializeArray().map(val =>
+        val = {
+          ...val,
+          value: val.value.trim()
+        }
+      )
+
+      checkOutItems(data, currentUserID);
+
+    })
   </script>
 </body>
 

@@ -21,6 +21,12 @@ if (isset($_SESSION["username"])) {
 }
 
 ?>
+<style>
+.select-wrapper>ul>li>span {
+  color: #f59498;
+}
+</style>
+
 <div class="col s12 m6 l4">
   <div class="card hoverable" style="background-color: #f59498; border-radius: 20px;">
     <div class="card-content">
@@ -29,7 +35,7 @@ if (isset($_SESSION["username"])) {
         20px;">
       </a>
       <span class="card-title center" style="font-size: 25px; font-weight:bold;">
-        <?php echo $name . " " . $category ?>
+        <?php echo $name ?>
       </span>
       <span class="card-title center" style="font-size: 20px; font-weight:bold;">
         Price: <span class="price">₱<?php echo $price ?></span>
@@ -45,7 +51,7 @@ if (isset($_SESSION["username"])) {
               <option disabled selected>Select Variants</option>
 
               <?php for ($i = 0; $i < count($variants); $i++) { ?>
-              <option value="<?php echo $variants[$i]["ID"] ?>">
+              <option style="color: #f59498;" value="<?php echo $variants[$i]["ID"] ?>">
                 <?php echo $variants[$i]["name"] ?>
               </option>
               <?php } ?>

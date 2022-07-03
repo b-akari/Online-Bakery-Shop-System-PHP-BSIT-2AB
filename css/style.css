@@ -1,407 +1,88 @@
-*{
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-body{
-	font-family: 'Poppins', sans-serif;
-}
-.navbar{
-	display: flex;
-	align-items: center;
-	padding: 20px;
-	background-color: #f59498;
-	padding-left: 50px;
-	padding-right: 10%;
-}
-nav{
-	flex: 1;
-	text-align: right;
-}
-nav ul{
-	display: inline-block;
-	list-style-type: none;
-}
-nav ul li{
-	display: inline-block;
-	margin-right: 20px;
-	font-size: medium;
-}
-a{
-	text-decoration: none;
-	color: black;
-}
-.menu_icon{
-	width: 28px;
-	margin-left: 20px;
-	display: none;
-}
-/* media query for menu */
-@media only screen and (max-width: 800px){
-	nav ul{
-		position: absolute;
-		top: 70px;
-		left: 0;
-		background: #f59498;
-		width: 100%;
-		overflow: hidden;
-		transition: max-height 0.5s;
-	}
-	nav ul li{
-		display: block;
-		margin-right: 50px;
-		margin-top: 10px;
-		margin-bottom: 10px;
-	}
-	.menu_icon{
-		display: block;
-		cursor: pointer;
-	}
-}
-.container{
-	margin: auto;
-	position: sticky;
-	top: 0px;
-}
-.container img{
-	margin-right: 20px;
-}
-.text{
-	background-image: url("images/homecover.png");
-	height: 100vh;
-	width: 100%;
-	background-size: cover;
-}
-.text h1{
-	padding-left: 45%;
-	padding-top: 10%;
-	padding-right: 8%;
-	text-align: justify;
-	font-size: 47px;
-	color: black;
-}
-.text h2{
-	padding-left: 45%;
-	padding-right: 8%;
-	text-align: justify;
-	font-weight: normal;
-}
-.cake h2{
-	text-align: center;
-	padding-top: 5%;
-	padding-bottom: 5px;
-}
-.menu{
-	text-align: center;
-}
-.col-1{
-	flex-basis: 25%;
-	float: left;
-	width: 33.33%;
-	padding: 5px;
-	text-align: center;
-}
-.col-1 img{
-	height: 400px;
-	padding-bottom: 5%;
-	border-radius: 30px;
-}
-.middle {
-  transition: .5s ease;
-  opacity: 0;
-  width: 300px;
-  height: 100px;
-	padding: 5px;
-	display: inline-block;
-}
-.col-1:hover .src{
-  opacity: 0.5;
-}
-
-.col-1:hover .middle {
-  opacity: 1;
-}
-.col-2:hover .src {
-  opacity: 0.5;
-}
-
-.col-2:hover .middle {
-  opacity: 1;
-}
-.col-3:hover .src{
-  opacity: 0.5;
-}
-
-.col-3:hover .middle {
-  opacity: 1;
-}
-
-.text2 {
-  background-color: #f59498;
-  color: white;
-  font-size: 16px;
-  padding: 16px 32px;
-  border-radius: 30px;
-}
-
-.seemore-btn{
-	background: #f59498;
-	color: black;
-	padding: 8px 30px;
-	margin: 30px 0;
-	border-radius: 30px;
-}
-.seemore-btn:hover{
-	color: white;
-}
-.cookie h2{
-	text-align: center;
-	padding-top: 3%;
-	padding-bottom: 5px;
-}
-.col-2{
-	flex-basis: 25%;
-	float: left;
-	width: 33.33%;
-	padding: 5px;
-	text-align: center;
-}
-.col-2 img{
-	height: 400px;
-	padding-bottom: 5%;
-	border-radius: 30px;
-}
-.pastry h2{
-	text-align: center;
-	padding-top: 3%;
-	padding-bottom: 5px;
-}
-.col-3{
-	flex-basis: 25%;
-	float: left;
-	width: 33.33%;
-	padding: 5px;
-	text-align: center;
-}
-.col-3 img{
-	height: 400px;
-	padding-bottom: 5%;
-	border-radius: 30px;
-}
-
-/* single-product */
-.single-product{
-	margin-top: 6%;
-	margin-left: 25%;
-}
-.single-product .col-2 img{
-	padding: 0;
-}
-.single-product h1{
-	margin-top: 60px;
-}
-.single-product .col-2{
-	padding: 20px;
-}
-.single-product select{
-	display: block;
-	padding: 10px;
-	height: 40px;
-	margin-left: 20px;
-	border: 1px solid #f59498;
-	position: absolute;
-	margin-top: 50px;
-
-}
-.single-product input{
-	width: 50px;
-	height: 40px;
-	padding-left: 10px;
-	font-size: 15px;
-	margin-right: 30px;
-	border: 1px solid #f59498;
-	margin-top: 110px;
-}
-.single-product .seemore-btn {
-	margin-right: 65px;
-}
-input:focus{
-	outline: none;
-}
-
-/* for cart */
-.cart{
-	position: fixed;
-	top: 0;
-
-	width: 360px;
-	min-height: 100vh;
-	padding: 20px;
-	background: #f59498;
-	box-shadow: -2px 0 4px hsl(0, 4%, 15% / -10%);
-
-}
-
-/* for testimonies */
-.feedbacks{
-	text-align: center;
-	padding: 30px 30px;
-}
-.testimonies{
-	padding-top: 100px;
-}
-.testimonies .col-4{
-	text-align: center;
-	padding: 40px 20px;
-	flex-basis: 25%;
-	float: left;
-	width: 33.33%;
-	cursor: pointer;
-	transition: transform 0.5s;
-}
-.testimonies .col-4 img{
-	width: 50px;
-	margin-top: 20px;
-	border-radius: 50%;
-}
-.testimonies p{
-	text-align: justify;
-}
-.testimonies .col-4:hover{
-	transform: translateY(-10px);
-}
-.footer-container{
-	background-color: #2E2625;
-	margin-top: 350px;
-}
-.footer{
-	width: 80%;
-	height: 60vh;
-	background-color: #2E2625;
-	color: white;
-	display: flex;
-	flex-wrap: wrap;
-	margin: 0 auto;
-	padding-top: 5%;
-	margin-top: 30%;
-}
-.footer-1{
-	padding-left: -200%;
-	padding-top: -10%;
-	padding-right: 10%;
-	text-align: left;
-	font-size: 20px;
-	display: flex;
-	flex-direction: column;
-}
-.footer-1 h1{
-	color: white;
-}
-.footer-1 a{
-	color: white;
-}
-.social-media{
-	display: inline-block;
-}
-.footer-2 a{
-	color: white;
-	text-align:right;
-}
-.footer-3 {
-	display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-.footer-3 a{
-	color: white;
-}
-
 /* for our team page */
-h1{
-	text-align: center;
-	padding-top: 3%;
-	padding-bottom: 10px;
-	color: #361500;
+.team {
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 10px;
+  color: #f59498;
 }
-.container-team{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap;
+.container-team {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
-.container-team .card{
-	width: 330px;
-	height: 416px;
-	padding: 60px 30px;
-	margin: 20px;
-	background: white;
-	box-shadow: 0.6em 0.6em 1.2em #DFBB9D;
-	
-	border-radius: 20px;
+.container-team .card {
+  width: 330px;
+  height: 416px;
+  padding: 60px 30px;
+  margin: 20px;
+  background: white;
+  box-shadow: 0.6em 0.6em 1.2em #dfbb9d;
+  border-radius: 20px;
 }
-.container-team .card .content{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
+.container-team .card .content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-.container-team .card .content .image{
-	width: 180px;
-	height: 180px;
-	border-radius: 50%;
-	position: relative;
-	margin-bottom: 20px;
-	overflow: hidden;
+.container-team .card .content .image {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  position: relative;
+  margin-bottom: 20px;
+  overflow: hidden;
 }
-.container-team .card .content .image img{
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
+.container-team .card .content .image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-.container-team .card .content .contentbox h4{
-	color: #361500;
-	font-size: 20px;
-	text-align: center;
-	letter-spacing: 1px;
+.container-team .card .content .contentbox h4 {
+  color: #361500;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 1px;
 }
-.container-team .card .content .contentbox h5{
-	color: #361500;
-	font-size: 18px;
-	text-align: center;
-	letter-spacing: 1px;
+.container-team .card .content .contentbox h5 {
+  color: #361500;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: 1px;
 }
-.container-team .card .content .sci{
-	margin-top: 20px;
+.container-team .card .content .sci {
+  margin-top: 20px;
 }
-.container-team .card .content .sci a{
-	color: #361500;
-	font-size: 25px;
-	margin: 5px;
-	transition: color 0.4s;
+.container-team .card .content .sci a {
+  color: #361500;
+  font-size: 25px;
+  margin: 5px;
+  transition: color 0.4s;
 }
-.container-team .card .content .sci a:hover{
-	color: #f59498;
+.container-team .card .content .sci a:hover {
+  color: #f59498;
 }
 
 /* for about page */
-.about h1{
-	text-align: center;
-	padding-top: 5%;
-	padding-bottom: 35px;
-	color: #2E2625;
+.about h2 {
+  text-align: center;
+  font-weight: bold;
+  padding-bottom: 35px;
+  color: #f59498;
 }
-.about h3{
-	text-align: center;
-	padding-left: 50px;
-	padding-right: 50px;
-	margin-left: 10%;
-	margin-right: 10%;
-	font-weight: normal;
-	color: #2E2625;
+.about h5 {
+  text-align: center;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-left: 10%;
+  margin-right: 10%;
+  font-weight: normal;
+  color: #2e2625;
 }
- .nav-component {
- 	z-index: 9999;
- }
+.nav-component {
+  z-index: 9999;
+}
