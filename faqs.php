@@ -85,7 +85,7 @@
         <li>GCash<br></li>
         <li>PayMaya<br></li>
       </div>
-    </div>
+    </div><br><br>
   </section>
   <script src="faqs.js"></script>
 
