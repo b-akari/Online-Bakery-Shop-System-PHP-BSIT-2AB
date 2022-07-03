@@ -45,7 +45,7 @@ $title = $_REQUEST["title"];
     <div class="container">
 
       <div class="col s12 center">
-        <h1 style="font-weight: bold; color: #f59498;"><?php echo $title ?></h1>
+        <h2 style="font-weight: bold; color: #f59498;"><?php echo $title ?></h2>
       </div>
       <div class="col s12">
 

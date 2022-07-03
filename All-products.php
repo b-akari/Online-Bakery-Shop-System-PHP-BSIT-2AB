@@ -47,7 +47,7 @@ if (isset($_SESSION["username"])) {
     <div class="container">
 
       <div class="col s12 center">
-        <h1 style="font-weight: bold; color: #f59498;">All Products</h1>
+        <h2 style="font-weight: bold; color: #f59498;">All Products</h2>
       </div>
       <div class="col s12">
 

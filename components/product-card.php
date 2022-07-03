@@ -45,7 +45,7 @@ if (isset($_SESSION["username"])) {
               <option disabled selected>Select Variants</option>
 
               <?php for ($i = 0; $i < count($variants); $i++) { ?>
-                <option value="<?php echo $variants[$i]["ID"] ?>">
+                <option style="color: #f59498;" value="<?php echo $variants[$i]["ID"] ?>">
                   <?php echo $variants[$i]["name"] ?>
                 </option>
               <?php } ?>

@@ -80,10 +80,10 @@
         <h4>What are your payment methods?</h4>
       </div>
       <div class="panel">
-        <li>Credit Card payments via Paypal<br></li>
-        <li>Bank Transfer<br></li>
+        <li>Cash on Delivery<br></li>
+        <li>Credit Card<br></li>
         <li>GCash<br></li>
-        <li>PayMaya<br></li>
+
       </div>
     </div><br><br>
   </section>
