@@ -10,11 +10,14 @@
   <script src="js/user.js"></script>
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" href="css/theme.css">
+  <script src="js/product-list.js"></script>
+  <script src="js/user.js"></script>
 </head>
 
 <body>
   <?php include 'components/navbar.php' ?>
-  <h1>OUR TEAM</h1>
+  <?php include 'components/cart-list.php' ?>
+  <h2 class="center team">OUR TEAM</h2>
 
   <div class="container-team">
     <div class="card">
@@ -69,7 +72,7 @@
         </div>
         <div class="contentbox">
           <h4>Emman Cadeliña</h4>
-          <h5>CEO</h5>
+          <h5>Janitor</h5>
         </div>
         <div class="sci">
           <a href="https://www.facebook.com/kyrieng.swish"><i class="fa-brands fa-facebook"></i></a>

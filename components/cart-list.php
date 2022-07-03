@@ -20,7 +20,7 @@ if (isset($_SESSION["username"])) {
   <!-- Your cart -->
   <li>
     <div class="center">
-      <h5 style="font-weight: bold;">Your Cart</h5>
+      <h5 style="font-weight: bold; color:#f59498;">Your Cart</h5>
     </div>
   </li>
   <!-- divider -->
@@ -54,16 +54,16 @@ if (isset($_SESSION["username"])) {
     </div>
   </li>
   <li>
-    <a id="buy-all-btn" class="pink lighten-4 waves-effect btn" style="color:brown;" href="checkout.php">Buy All Now</a>
+    <a id="buy-all-btn" class=" waves-effect btn" style="color:white; background-color:#f59498;" href="checkout.php">Buy All Now</a>
   </li>
 </ul>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('#add-to-cart');
-  var instances = M.Sidenav.init(elems, {
-    edge: 'right'
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('#add-to-cart');
+    var instances = M.Sidenav.init(elems, {
+      edge: 'right'
+    });
   });
-});
-getCart("<?php echo $user_ID ?>");
+  getCart("<?php echo $user_ID ?>");
 </script>

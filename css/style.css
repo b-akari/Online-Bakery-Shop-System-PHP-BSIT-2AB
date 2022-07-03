@@ -1,9 +1,9 @@
 /* for our team page */
-h1 {
+.team {
+  font-weight: bold;
   text-align: center;
-  padding-top: 3%;
   padding-bottom: 10px;
-  color: #361500;
+  color: #f59498;
 }
 .container-team {
   display: flex;
@@ -18,7 +18,6 @@ h1 {
   margin: 20px;
   background: white;
   box-shadow: 0.6em 0.6em 1.2em #dfbb9d;
-
   border-radius: 20px;
 }
 .container-team .card .content {
