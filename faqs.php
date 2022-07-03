@@ -26,7 +26,9 @@
         <h4>COVID-19</h4>
       </div>
       <div class="panel">
-        <p>In Cookie Co., we prioritize the safety of both our clients and team members in planning our operations. For the sake of everyone, we have decided to practice food and safety protocols, especially testing our team members for COVID-19 symptoms. </p>
+        <p>In Cookie Co., we prioritize the safety of both our clients and team members in planning our operations. For
+          the sake of everyone, we have decided to practice food and safety protocols, especially testing our team
+          members for COVID-19 symptoms. </p>
       </div>
       <div class="accordion">
         <div class="icon"></div>
@@ -40,14 +42,16 @@
         <h4>Where do you deliver?</h4>
       </div>
       <div class="panel">
-        <p>We deliver strictly anywhere within the vicinity of Metro Manila to avoid possible complications regarding the delivery process.</p>
+        <p>We deliver strictly anywhere within the vicinity of Metro Manila to avoid possible complications regarding
+          the delivery process.</p>
       </div>
       <div class="accordion">
         <div class="icon"></div>
         <h4>How does shipping work?</h4>
       </div>
       <div class="panel">
-        <p>Your deliveries will be handled via third party providers. The delivery service that will handle your order is up to you, but we generally recommend Lalamove as this causes little to no problems.</p>
+        <p>Your deliveries will be handled via third party providers. The delivery service that will handle your order
+          is up to you, but we generally recommend Lalamove as this causes little to no problems.</p>
       </div>
       <div class="accordion">
         <div class="icon"></div>
@@ -61,7 +65,8 @@
         <h4>How long do I have to wait for customized orders?</h4>
       </div>
       <div class="panel">
-        <p>Customized orders typically take about a week to be made, but this may vary depending on the design given. We will quickly give you an update regarding the status of your order if anything occurs.</p>
+        <p>Customized orders typically take about a week to be made, but this may vary depending on the design given. We
+          will quickly give you an update regarding the status of your order if anything occurs.</p>
       </div>
       <div class="accordion">
         <div class="icon"></div>
@@ -87,7 +92,6 @@
   <!-- footer -->
   <?php include 'components/footer.php' ?>
 
-  <script src="menu.js"></script>
 </body>
 
 </html>
