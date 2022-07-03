@@ -18,280 +18,8 @@ if (session_status() === PHP_SESSION_NONE) {
   .primary-color {
     background-color: #f59498 !important;
   }
-
-
-
-  #body {
-    width: 100%;
-    height: 100vh;
-    background-color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-  }
-
-  .icons {
-    display: none;
-  }
-
-  .animate-container {
-    position: relative;
-    width: 400px;
-    height: 400px;
-  }
-
-  .animate-container .text-animate-container,
-  .animate-container .shadow-animate-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  .animate-container .text {
-    position: absolute;
-    top: 50%;
-    font-size: 12rem;
-    font-family: "Bebas Neue";
-    font-weight: bold;
-    -webkit-text-stroke: 2px #161618;
-    letter-spacing: 4px;
-    user-select: none;
-    pointer-events: none;
-  }
-
-  .animate-container .text .icon {
-    position: absolute;
-    width: 1vw;
-    height: 1vw;
-    stroke-width: 25px;
-    stroke: #161618;
-    transform: translate(-50%, -50%);
-    animation: scaleUpdown 2000ms ease-in-out infinite;
-  }
-
-  .animate-container .text .icon:nth-child(1) {
-    top: 30%;
-    left: 2.5%;
-    animation-delay: 0;
-  }
-
-  .animate-container .text .icon:nth-child(2) {
-    top: 62%;
-    left: 24.5%;
-    animation-delay: -200ms;
-  }
-
-  .animate-container .text .icon:nth-child(3) {
-    top: 13%;
-    left: 70%;
-    animation-delay: -480ms;
-  }
-
-  .animate-container .text .icon:nth-child(4) {
-    top: 56%;
-    left: 99.5%;
-    animation-delay: -940ms;
-  }
-
-  .animate-container .text-animate-container {
-    z-index: 1;
-  }
-
-  .animate-container .text-animate-container .text .icon {
-    fill: #f2f2f2;
-  }
-
-  .animate-container .text-animate-container .text:nth-child(1) {
-    opacity: 0;
-    left: 42.5%;
-    transform: translate(-50%, -50%);
-    animation: upDown 2000ms ease-in-out infinite;
-    animation-delay: calc(0s + (0.1s * 1));
-    z-index: -1;
-  }
-
-  .animate-container .text-animate-container .text:nth-child(2) {
-    opacity: 0;
-    left: 45%;
-    transform: translate(-50%, -50%);
-    animation: upDown 2000ms ease-in-out infinite;
-    animation-delay: calc(0s + (0.1s * 2));
-    z-index: -2;
-  }
-
-  .animate-container .text-animate-container .text:nth-child(3) {
-    opacity: 0;
-    left: 47.5%;
-    transform: translate(-50%, -50%);
-    animation: upDown 2000ms ease-in-out infinite;
-    animation-delay: calc(0s + (0.1s * 3));
-    z-index: -3;
-  }
-
-  .animate-container .text-animate-container .text:nth-child(4) {
-    opacity: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: upDown 2000ms ease-in-out infinite;
-    animation-delay: calc(0s + (0.1s * 4));
-    z-index: -4;
-  }
-
-  .animate-container .text-animate-container .text:nth-child(5) {
-    opacity: 0;
-    left: 52.5%;
-    transform: translate(-50%, -50%);
-    animation: upDown 2000ms ease-in-out infinite;
-    animation-delay: calc(0s + (0.1s * 5));
-    z-index: -5;
-  }
-
-  .animate-container .text-animate-container .text:nth-child(6) {
-    opacity: 0;
-    left: 55%;
-    transform: translate(-50%, -50%);
-    animation: upDown 2000ms ease-in-out infinite;
-    animation-delay: calc(0s + (0.1s * 6));
-    z-index: -6;
-  }
-
-  .animate-container .text-animate-container .text:nth-child(7) {
-    opacity: 0;
-    left: 57.5%;
-    transform: translate(-50%, -50%);
-    animation: upDown 2000ms ease-in-out infinite;
-    animation-delay: calc(0s + (0.1s * 7));
-    z-index: -7;
-  }
-
-  .animate-container .shadow-animate-container {
-    z-index: 0;
-  }
-
-  .animate-container .shadow-animate-container .text {
-    -webkit-text-stroke: 0;
-    letter-spacing: -2px;
-    color: #6d7881;
-    top: 54%;
-  }
-
-  .animate-container .shadow-animate-container .text:nth-child(1) {
-    opacity: 0;
-    left: 37.5%;
-    transform: translate(-50%, -50%);
-    animation: upDown 2000ms ease-in-out infinite;
-    animation-delay: calc(0s + (0.1s * 1));
-    z-index: -8;
-  }
-
-  .animate-container .shadow-animate-container .text:nth-child(2) {
-    opacity: 0;
-    left: 40%;
-    transform: translate(-50%, -50%);
-    animation: upDown 2000ms ease-in-out infinite;
-    animation-delay: calc(0s + (0.1s * 2));
-    z-index: -9;
-  }
-
-  .animate-container .shadow-animate-container .text:nth-child(3) {
-    opacity: 0;
-    left: 42.5%;
-    transform: translate(-50%, -50%);
-    animation: upDown 2000ms ease-in-out infinite;
-    animation-delay: calc(0s + (0.1s * 3));
-    z-index: -10;
-  }
-
-  .animate-container .shadow-animate-container .text:nth-child(4) {
-    opacity: 0;
-    left: 45%;
-    transform: translate(-50%, -50%);
-    animation: upDown 2000ms ease-in-out infinite;
-    animation-delay: calc(0s + (0.1s * 4));
-    z-index: -11;
-  }
-
-  .animate-container .shadow-animate-container .text:nth-child(5) {
-    opacity: 0;
-    left: 47.5%;
-    transform: translate(-50%, -50%);
-    animation: upDown 2000ms ease-in-out infinite;
-    animation-delay: calc(0s + (0.1s * 5));
-    z-index: -12;
-  }
-
-  .animate-container .shadow-animate-container .text:nth-child(6) {
-    opacity: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: upDown 2000ms ease-in-out infinite;
-    animation-delay: calc(0s + (0.1s * 6));
-    z-index: -13;
-  }
-
-  .animate-container .shadow-animate-container .text:nth-child(7) {
-    opacity: 0;
-    left: 52.5%;
-    transform: translate(-50%, -50%);
-    animation: upDown 2000ms ease-in-out infinite;
-    animation-delay: calc(0s + (0.1s * 7));
-    z-index: -14;
-  }
-
-  .animate-container .shadow-animate-container .text .icon {
-    fill: #6d7881;
-    stroke-width: 0;
-  }
-
-  @keyframes upDown {
-
-    0%,
-    100% {
-      opacity: 1;
-      transform: translate(-50%, -70%);
-    }
-
-    50% {
-      transform: translate(-50%, -30%);
-    }
-  }
-
-  @keyframes scaleUpdown {
-    0% {
-      transform: translate(-50%, -50%) scale(1) rotate(0);
-    }
-
-    50% {
-      transform: translate(-50%, -50%) scale(1.4) rotate(90deg);
-    }
-
-    100% {
-      transform: translate(-50%, -50%) scale(1) rotate(180deg);
-    }
-  }
-
-  .support {
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
-    padding: 10px;
-    display: flex;
-  }
-
-  .support a {
-    margin: 0 10px;
-    color: #fff;
-    font-size: 1.8rem;
-    transition: all 200ms ease;
-  }
-
-  .support a:hover {
-    color: rgba(200, 200, 200, 0.85);
-  }
   </style>
+  <link rel="stylesheet" href="css/animate-thank-you.css">
   <script src="js/product-list.js"></script>
   <script src="js/user.js"></script>
 </head>
@@ -318,14 +46,16 @@ if (session_status() === PHP_SESSION_NONE) {
               <use xlink:href="#star"></use>
             </svg>
           </div>
-        </span><span class="text">Thank You </span><span class="text">Thank You
-        </span><span class="text">Thank
-          You </span><span class="text">Thank You
-        </span><span class="text">Thank You
-        </span><span class="text">Thank
-          You </span>
+        </span>
+        <span class="text">Thank You</span>
+        <span class="text">Thank You</span>
+        <span class="text">Thank You</span>
+        <span class="text">Thank You</span>
+        <span class="text">Thank You</span>
+        <span class="text">Thank You</span>
       </div>
-      <div class="shadow-animate-container"><span class="text shadow">Thank You
+      <div class="shadow-animate-container">
+        <span class="text shadow">Thank You
           <div class="icon--animate-container">
             <svg class="icon star">
               <use xlink:href="#star"></use>
@@ -340,14 +70,16 @@ if (session_status() === PHP_SESSION_NONE) {
               <use xlink:href="#star"></use>
             </svg>
           </div>
-        </span><span class="text shadow">Thank You </span><span class="text shadow">Thank You </span><span
-          class="text shadow">Thank You
-        </span><span class="text shadow">Thank You
-        </span><span class="text shadow">Thank
-          You </span><span class="text shadow">Thank You
         </span>
+        <span class="text shadow">Thank You</span>
+        <span class="text shadow">Thank You</span>
+        <span class="text shadow">Thank You</span>
+        <span class="text shadow">Thank You</span>
+        <span class="text shadow">Thank You</span>
+        <span class="text shadow">Thank You</span>
       </div>
     </div>
+
     <svg class="icons">
       <symbol id="star" viewbox="0 0 296.789 296.789">
         <path
@@ -355,13 +87,10 @@ if (session_status() === PHP_SESSION_NONE) {
         </path>
       </symbol>
     </svg>
-    <div class="support"><a href="https://twitter.com/DevLoop01" target="_blank"><i class="fab fa-twitter-square">
-        </i></a><a href="https://codepen.io/dev_loop/" target="_blank"><i class="fab fa-codepen"></i></a></div>
 
   </div>
+
   <?php include 'components/footer.php' ?>
-
-
 
   <script>
   const textArr = document.querySelectorAll('.text')

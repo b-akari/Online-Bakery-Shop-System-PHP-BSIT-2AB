@@ -15,6 +15,30 @@ const displayAllProducts = () => {
    
   })
 }
+
+const displayCarousel = () => {
+  $.get(
+    'DB/product-list.php?type=all'
+  )
+  .done((data)=>{
+    let json = JSON.parse(data)
+
+    json.results.forEach((val, i )=> {
+      if(i == json.results.length - 1 ){
+        val.last = "true";
+      }
+      $.post('components/carousel-item.php', val)
+      .done((res) => {
+        $("#carousel-product").append(res);
+      })
+
+     
+
+    })
+   
+  })
+}
+
 const displayCategory = (type) => {
   $.get(
     `DB/product-list.php?type=${type}`

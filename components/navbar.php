@@ -7,7 +7,7 @@ if (session_status() === PHP_SESSION_NONE) {
 <nav>
   <div class="nav-wrapper primary-color">
     <a href="index.php" class="brand-logo center">
-      <img src="  images/logo.png" alt="" style="height: 5vh ;">
+      <img src="assets/images/logo.png" alt="" style="height: 5vh ;">
     </a>
     <a href="#" data-target="mobile-demo" class="sidenav-trigger">
       <i class="material-icons">menu</i>
@@ -51,7 +51,7 @@ if (session_status() === PHP_SESSION_NONE) {
 <ul class="sidenav " id="mobile-demo">
   <li>
     <a href="index.php" class="brand-logo center" style="margin: 30px 0;">
-      <img src="images/logo.png" alt="" style="width: 100%;">
+      <img src="assets/images/logo.png" alt="" style="width: 100%;">
     </a>
   </li>
   <div class="divider"></div>

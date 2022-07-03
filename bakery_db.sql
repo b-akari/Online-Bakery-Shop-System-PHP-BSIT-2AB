@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 02, 2022 at 06:04 AM
+-- Generation Time: Jul 03, 2022 at 05:52 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.14
 
@@ -34,13 +34,6 @@ CREATE TABLE `add_to_cart` (
   `quantity` int(11) NOT NULL,
   `variants_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `add_to_cart`
---
-
-INSERT INTO `add_to_cart` (`ID`, `user_ID`, `product_ID`, `quantity`, `variants_ID`) VALUES
-(14, 2, 8, 1, 5);
 
 -- --------------------------------------------------------
 
@@ -74,8 +67,32 @@ CREATE TABLE `checkout_item` (
   `checkout_items_ID` int(11) NOT NULL,
   `product_ID` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
-  `variants_ID` int(11) NOT NULL
+  `variants_ID` int(11) NOT NULL,
+  `total_price` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `checkout_item`
+--
+
+INSERT INTO `checkout_item` (`ID`, `checkout_items_ID`, `product_ID`, `quantity`, `variants_ID`, `total_price`) VALUES
+(1, 2, 9, 3, 5, 432),
+(2, 2, 1, 5, 2, 3600),
+(3, 3, 6, 2, 1, 1400),
+(4, 3, 4, 2, 3, 1959.99),
+(5, 3, 1, 2, 1, 1200),
+(6, 3, 9, 2, 6, 448),
+(7, 3, 7, 1, 6, 168),
+(8, 4, 6, 2, 1, 1400),
+(9, 4, 4, 2, 3, 1959.99),
+(10, 4, 1, 2, 1, 1200),
+(11, 4, 9, 2, 6, 448),
+(12, 4, 7, 1, 6, 168),
+(13, 5, 6, 2, 1, 1400),
+(14, 5, 4, 2, 3, 1959.99),
+(15, 5, 1, 2, 1, 1200),
+(16, 5, 9, 2, 6, 448),
+(17, 5, 7, 1, 6, 168);
 
 -- --------------------------------------------------------
 
@@ -86,8 +103,67 @@ CREATE TABLE `checkout_item` (
 CREATE TABLE `checkout_items` (
   `ID` int(11) NOT NULL,
   `user_ID` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `address` text NOT NULL,
+  `contact_number` varchar(45) NOT NULL,
+  `payment_method` varchar(45) NOT NULL,
+  `total_quantity` int(10) NOT NULL,
+  `total_price` double NOT NULL,
+  `shipping_fee` double NOT NULL,
   `date_created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `checkout_items`
+--
+
+INSERT INTO `checkout_items` (`ID`, `user_ID`, `name`, `address`, `contact_number`, `payment_method`, `total_quantity`, `total_price`, `shipping_fee`, `date_created`) VALUES
+(1, 2, 'Wyn Christian Rebanal', 'Blk 62 Lot 10 Phase 3 Lapu-Lapu st.', '09214765154', 'cc', 8, 4082, 50, '2022-07-03 10:52:23'),
+(2, 2, 'Wyn Christian Rebanal', 'Blk 62 Lot 10 Phase 3 Lapu-Lapu st.', 'ha', 'cod', 8, 4082, 50, '2022-07-03 11:18:10'),
+(3, 2, 'Wyn Christian Rebanal', 'Blk 62 Lot 10 Phase 3 Lapu-Lapu st.', '09214765154', 'gcash', 9, 5226, 50, '2022-07-03 11:50:20'),
+(4, 2, 'Wyn Christian Rebanal', 'Blk 62 Lot 10 Phase 3 Lapu-Lapu st.', '09214765154', 'cod', 9, 5226, 50, '2022-07-03 11:51:17'),
+(5, 2, 'Wyn Christian Rebanal', 'Blk 62 Lot 10 Phase 3 Lapu-Lapu st.', '09214765154', 'cod', 9, 5226, 50, '2022-07-03 11:51:44');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `credit_card_checkout`
+--
+
+CREATE TABLE `credit_card_checkout` (
+  `ID` int(11) NOT NULL,
+  `number` varchar(45) NOT NULL,
+  `expiry_date` varchar(10) NOT NULL,
+  `cvv` varchar(10) NOT NULL,
+  `checkout_items_ID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `credit_card_checkout`
+--
+
+INSERT INTO `credit_card_checkout` (`ID`, `number`, `expiry_date`, `cvv`, `checkout_items_ID`) VALUES
+(1, '1209', '12/12', '1234', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gcash_checkout`
+--
+
+CREATE TABLE `gcash_checkout` (
+  `ID` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `number` varchar(20) NOT NULL,
+  `checkout_items_ID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `gcash_checkout`
+--
+
+INSERT INTO `gcash_checkout` (`ID`, `name`, `number`, `checkout_items_ID`) VALUES
+(1, 'wynter', '09214765154', 3);
 
 -- --------------------------------------------------------
 
@@ -206,6 +282,18 @@ ALTER TABLE `checkout_items`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Indexes for table `credit_card_checkout`
+--
+ALTER TABLE `credit_card_checkout`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `gcash_checkout`
+--
+ALTER TABLE `gcash_checkout`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
@@ -231,7 +319,7 @@ ALTER TABLE `variants`
 -- AUTO_INCREMENT for table `add_to_cart`
 --
 ALTER TABLE `add_to_cart`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -243,13 +331,25 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `checkout_item`
 --
 ALTER TABLE `checkout_item`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `checkout_items`
 --
 ALTER TABLE `checkout_items`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `credit_card_checkout`
+--
+ALTER TABLE `credit_card_checkout`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `gcash_checkout`
+--
+ALTER TABLE `gcash_checkout`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `product`

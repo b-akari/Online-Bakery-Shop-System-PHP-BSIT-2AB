@@ -19,6 +19,7 @@ if (session_status() === PHP_SESSION_NONE) {
     background-color: #f59498 !important;
   }
   </style>
+  <script src="js/product-list.js"></script>
   <script src="js/user.js"></script>
 </head>
 
@@ -60,31 +61,23 @@ if (session_status() === PHP_SESSION_NONE) {
         <h3 class="center">Have a look:</h3>
       </div>
       <div class="col s12">
-        <div class="carousel">
-          <a class="carousel-item hoverable" href="#one!"><img src="assets/product-img/cake/carrot.png"></a>
-          <a class="carousel-item hoverable" href="#two!"><img src="assets/product-img/cake/chocofudge.png"></a>
-          <a class="carousel-item hoverable" href="#three!"><img src="assets/product-img/cake/carrot.png"></a>
-          <a class="carousel-item hoverable" href="#four!"><img src="assets/product-img/cake/carrot.png"></a>
-          <a class="carousel-item hoverable" href="#five!"><img src="assets/product-img/cake/carrot.png"></a>
+        <div class="carousel" id="carousel-product">
         </div>
       </div>
     </div>
   </div>
   <?php include 'components/footer.php' ?>
 
-  <script src="js/product-list.js"></script>
 
 
   <script>
   document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.carousel');
-    var instances = M.Carousel.init(elems, {
-      padding: 10,
-      dist: -70
-    });
-  });
+    displayCarousel();
+    // M.AutoInit()
+    var elems = document.querySelectorAll('.parallax');
+    var instances = M.Parallax.init(elems);
 
-  M.AutoInit()
+  });
   </script>
 </body>
 
