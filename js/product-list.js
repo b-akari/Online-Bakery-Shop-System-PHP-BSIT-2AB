@@ -50,6 +50,7 @@ const highlightProduct = (product_ID) => {
       M.FormSelect.init(elems);
       var image = document.querySelectorAll('.materialboxed');
       M.Materialbox.init(image );
+      
     })
   })
 }

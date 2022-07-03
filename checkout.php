@@ -21,6 +21,12 @@ if (isset($_SESSION["username"])) {
 
   <?php include 'components/libraries.php' ?>
 
+  <style>
+  .input-disabled {
+    color: black !important;
+  }
+  </style>
+
   <script src="js/product-list.js"></script>
   <script src="js/user.js"></script>
 </head>
@@ -95,8 +101,8 @@ if (isset($_SESSION["username"])) {
                 <div class="row">
                   <div class="input-field col s12">
                     <i class="material-icons prefix">location_on</i>
-                    <textarea id="icon_prefix2" name="address" class="materialize-textarea"></textarea>
-                    <label for="icon_prefix2">Address</label>
+                    <textarea id="address" name="address" class="materialize-textarea"></textarea>
+                    <label for="address">Address</label>
                   </div>
                 </div>
               </div>
@@ -171,6 +177,8 @@ if (isset($_SESSION["username"])) {
             </div>
           </div>
 
+          <input type="number" name="total-quantity" id="total-quantity" class="hide">
+
           <div class="col s12">
             <div class="row">
               <div class="col s12">
@@ -178,24 +186,56 @@ if (isset($_SESSION["username"])) {
               </div>
               <div class="col s12">
                 <p>
-                  Total Merchandise Price: ₱<span id="merchandise-price-payment">400</span>
+                  Total Merchandise Price:
+                  <span class="input-field inline">
+                    <i class="material-icons prefix">currency_ruble</i>
+                    <input type="number" name="merchandise-price-payment" class="input-disabled"
+                      id="merchandise-price-payment" value="0" readonly="true">
+                  </span>
                 </p>
                 <p>
-                  Shipping Price : ₱50
+                  Shipping Fee :
+                  <span class="input-field inline">
+                    <i class="material-icons prefix">currency_ruble</i>
+                    <input type="number" name="shipping-fee" class="input-disabled" id="shipping-fee" value="50"
+                      readonly="true">
+                  </span>
                 </p>
                 <p>
-                  Total Price : ₱<span id="total-price-payment">400</span>
+                  Total Price :
+                  <span class="input-field inline">
+                    <i class="material-icons prefix">currency_ruble</i>
+                    <input type="number" name="total-price-payment" class="input-disabled" id="total-price-payment"
+                      readonly="true">
+                  </span>
                 </p>
               </div>
 
             </div>
           </div>
           <div class="col s12">
-
-            <button class="btn waves-effect waves-light" type="submit" name="action">
+            <!-- Modal Trigger -->
+            <a class="waves-effect waves-light btn modal-trigger" href="#modal1">
               Proceed to payment
               <i class="material-icons right">send</i>
-            </button>
+            </a>
+
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal">
+              <div class="modal-content">
+                <h4>Proceed to pay?</h4>
+                <p>Press proceed to if you want to pay the current items.</p>
+              </div>
+              <div class="modal-footer">
+                <button class="btn waves-effect waves-light btn-flat" type="submit" name="action">
+                  Proceed
+                  <i class="material-icons right">send</i>
+                </button>
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">
+                  Cancel
+                </a>
+              </div>
+            </div>
           </div>
         </form>
       </div>
@@ -206,7 +246,10 @@ if (isset($_SESSION["username"])) {
   <?php include 'components/footer.php' ?>
 
   <script>
-  displayCheckout(<?php echo $user_ID ?>);
+  let currentUserID = <?php echo $user_ID ?>;
+  displayCheckout(currentUserID);
+  var elems = document.querySelectorAll('.modal');
+  var instances = M.Modal.init(elems);
   $("#credit-card-form").hide()
   $("#gcash-form").hide()
 
@@ -214,6 +257,7 @@ if (isset($_SESSION["username"])) {
     if (this.value == "cod") {
       $("#credit-card-form").hide()
       $("#gcash-form").hide()
+
     } else if (this.value == "cc") {
       $("#credit-card-form").show()
       $("#gcash-form").hide()
@@ -228,7 +272,68 @@ if (isset($_SESSION["username"])) {
     event.preventDefault();
     let data_input = $("form").serializeArray();
 
-    console.log($("form").serializeArray());
+    // basic input handling
+    let basic_inputs = ["name", "contact-number", "address"];
+    let inputs = []
+    for (let i = 0; i < basic_inputs.length; i++) {
+      if ($(`#${basic_inputs[i]}`).val().trim() == "") {
+        inputs.push(basic_inputs[i]);
+      }
+    }
+    if (inputs.length) {
+
+      inputs = inputs.map(val => val.replace('-', ' '))
+      M.toast({
+        html: `Please enter your ${inputs.join(", ")} first!`
+      })
+      return;
+    }
+
+    // payment input handling
+    let payment_method = $('input[type=radio][name=payment-method]:checked').val();
+    switch (payment_method) {
+      case 'cc':
+        let card_inputs = ["card-number", "card-expiry-date", "card-cvv"];
+        let card_empty_inputs = []
+        for (let i = 0; i < card_inputs.length; i++) {
+          if ($(`#${card_inputs[i]}`).val().trim() == "") {
+            card_empty_inputs.push(card_inputs[i]);
+          }
+        }
+        if (card_empty_inputs.length) {
+          card_empty_inputs = card_empty_inputs.map(val => val.replace('card', "").replaceAll('-', ' '))
+          M.toast({
+            html: `Please enter your ${card_empty_inputs.join(", ")} in "Card Details"!`
+          })
+          return;
+        }
+        break;
+      case 'gcash':
+        let gcash_inputs = ["gcash-name", "gcash-number"];
+        let gcash_empty_inputs = []
+        for (let i = 0; i < gcash_inputs.length; i++) {
+          if ($(`#${gcash_inputs[i]}`).val().trim() == "") {
+            gcash_empty_inputs.push(gcash_inputs[i]);
+          }
+        }
+        if (gcash_empty_inputs.length) {
+          gcash_empty_inputs = gcash_empty_inputs.map(val => val.replace('gcash', "").replaceAll('-', ' '))
+          M.toast({
+            html: `Please enter your ${gcash_empty_inputs.join(", ")} in "Gcash Details"!`
+          })
+          return;
+        }
+        break;
+    }
+    // input formatting (trimming whitespaces)
+    let data = $("form").serializeArray().map(val =>
+      val = {
+        ...val,
+        value: val.value.trim()
+      }
+    )
+
+    checkOutItems(data, currentUserID);
 
   })
   </script>

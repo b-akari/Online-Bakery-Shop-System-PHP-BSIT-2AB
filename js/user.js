@@ -37,7 +37,10 @@ const getCart = (user_ID) => {
     $.get(`DB/add-to-cart.php?type=get&user_ID=${user_ID}`)
     .done((res)=> {
       let data = JSON.parse(res);
-      
+      if(data == null){
+        $("#display-price").addClass("hide");
+        $("#buy-all-btn").addClass("hide");
+      }
       data.result.forEach((val)=> {
         $.post("components/cart-item.php", val)
         .done(htmlRes => {
@@ -130,17 +133,57 @@ const displayTotalCheckout = (user_ID) => {
     .done(res =>{
       $("#checkout-data").append(res);
     })
-    $("#merchandise-price-payment").html(
-      `<b>
-      ${json.final_price}
-      </b>`
+    $("#merchandise-price-payment").val(
+      parseFloat(json.final_price)
+      );
+    $("#total-quantity").val(
+      parseFloat(json.quantity)
       );
     let total = parseFloat(json.final_price) + 50;
-    $("#total-price-payment").html(
-      `<b>${total}</b>`
-      );
-    
-
-    
+    $("#total-price-payment").val(parseFloat(total));
   })
+}
+
+const checkOutItems = (input_data, user_ID) => {
+  // spreading input_data into its own variable
+  let [
+    name,
+    contact_number,
+    address,
+    payment_method,
+    card_number,
+    card_expiry_date,
+    card_cvv,
+    gcash_name,
+    gcash_number,
+    total_quantity,
+    merchandise_price_payment,
+    shipping_fee,
+    total_price_payment,
+  ] = input_data.map(val => val.value);
+
+  let data = {
+    name,
+    contact_number,
+    address,
+    payment_method,
+    card_number,
+    card_expiry_date,
+    card_cvv,
+    gcash_name,
+    gcash_number,
+    total_quantity,
+    merchandise_price_payment,
+    shipping_fee,
+    total_price_payment,
+    user_ID
+  }
+
+  $.post("DB/checkout.php", data)
+  .done(res =>{
+    if(res == "success") {
+      window.location = "thank-you.php";
+    }
+  })
+  console.log(data)
 }
