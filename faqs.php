@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MOST FAQS</title>
-  <link rel="stylesheet" type="text/css" href="faqsStyle.css">
+  <link rel="stylesheet" type="text/css" href="css/faqsStyle.css">
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" href="css/theme.css">
   <?php include 'components/libraries.php' ?>
@@ -87,7 +87,7 @@
       </div>
     </div><br><br>
   </section>
-  <script src="faqs.js"></script>
+  <script src="js/faqs.js"></script>
 
   <!-- footer -->
   <?php include 'components/footer.php' ?>
