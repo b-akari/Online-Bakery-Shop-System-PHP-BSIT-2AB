@@ -21,15 +21,15 @@ $title = $_REQUEST["title"];
   <link rel="stylesheet" href="css/theme.css">
 
   <style>
-    .card-btn {
-      background-color: black;
-    }
+  .card-btn {
+    background-color: black;
+  }
 
-    .card-btn:hover,
-    .card-btn:focus {
-      background-color: white;
-      color: black;
-    }
+  .card-btn:hover,
+  .card-btn:focus {
+    background-color: white;
+    color: black;
+  }
   </style>
   <script src="js/product-list.js"></script>
   <script src="js/user.js"></script>
@@ -65,15 +65,15 @@ $title = $_REQUEST["title"];
   <?php include 'components/footer.php' ?>
 
   <script>
-    displayCategory("<?php echo $type ?>")
-    document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('select');
-      var instances = M.FormSelect.init(elems);
-    });
-    $("form").submit(function(event) {
+  displayCategory("<?php echo $type ?>")
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
+  });
+  $("form").submit(function(event) {
 
-      event.preventDefault();
-    });
+    event.preventDefault();
+  });
   </script>
 </body>
 
