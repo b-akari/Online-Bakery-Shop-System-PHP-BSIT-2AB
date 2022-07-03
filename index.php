@@ -15,9 +15,9 @@ if (session_status() === PHP_SESSION_NONE) {
   <?php include_once 'components/libraries.php' ?>
 
   <style>
-  .primary-color {
-    background-color: #f59498 !important;
-  }
+    .primary-color {
+      background-color: #f59498 !important;
+    }
   </style>
   <script src="js/product-list.js"></script>
   <script src="js/user.js"></script>
@@ -68,17 +68,20 @@ if (session_status() === PHP_SESSION_NONE) {
   </div>
   <?php include 'components/footer.php' ?>
 
+  <script src="js/product-list.js"></script>
 
 
   <script>
-  document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.carousel');
+      var instances = M.Carousel.init(elems, {
+        padding: 10,
+        dist: -70
+      });
+    });
     displayCarousel();
     // M.AutoInit()
     var elems = document.querySelectorAll('.parallax');
     var instances = M.Parallax.init(elems);
-
-  });
   </script>
 </body>
-
-</html>

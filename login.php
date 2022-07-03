@@ -6,9 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>All Products</title>
-  <style>
-
-  </style>
+  <link rel="stylesheet" href="css/theme.css">
   <?php include 'components/libraries.php' ?>
   <script src="js/user.js"></script>
 
@@ -39,8 +37,8 @@
         <div class="row">
           <div class="col s12 m8 offset-m2 l6 offset-l3">
 
-            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-              <i class="material-icons right">send</i>
+            <button class="btn waves-effect waves-light" type="submit" name="action" style="background-color: #f59498;">Submit
+              <i class=" material-icons right">send</i>
             </button>
           </div>
         </div>
@@ -59,40 +57,40 @@
   <script src="js/product-list.js"></script>
 
   <script>
-  $("form").submit((event) => {
-    event.preventDefault();
-    let inputs = $("#login-form").serializeArray();
-    let [email, password] = [...inputs]
+    $("form").submit((event) => {
+      event.preventDefault();
+      let inputs = $("#login-form").serializeArray();
+      let [email, password] = [...inputs]
 
-    let data = {
-      type: "login",
-      email: email.value,
-      password: password.value,
-    }
-    $.post(
-        `DB/user.php`, data)
-      .done((result) => {
-        switch (result) {
-          case "email":
-            M.toast({
-              html: "Email doesn't exist!"
-            });
-            break;
-          case "password":
-            M.toast({
-              html: "Wrong password!"
-            });
-            break;
-          default:
-            let user = JSON.parse(result);
-            M.toast({
-              html: "Log in successfully!"
-            });
-            window.location.href = "index.php";
-            break;
-        }
-      })
-  });
+      let data = {
+        type: "login",
+        email: email.value,
+        password: password.value,
+      }
+      $.post(
+          `DB/user.php`, data)
+        .done((result) => {
+          switch (result) {
+            case "email":
+              M.toast({
+                html: "Email doesn't exist!"
+              });
+              break;
+            case "password":
+              M.toast({
+                html: "Wrong password!"
+              });
+              break;
+            default:
+              let user = JSON.parse(result);
+              M.toast({
+                html: "Log in successfully!"
+              });
+              window.location.href = "index.php";
+              break;
+          }
+        })
+    });
   </script>
 </body>
 

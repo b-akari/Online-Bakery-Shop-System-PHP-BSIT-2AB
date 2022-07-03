@@ -19,7 +19,7 @@ $product_ID = $_REQUEST["product_ID"];
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>All Products</title>
-
+  <link rel="stylesheet" href="css/theme.css">
   <?php include 'components/libraries.php' ?>
 
   <script src="js/product-list.js"></script>
@@ -47,7 +47,7 @@ $product_ID = $_REQUEST["product_ID"];
   <?php include 'components/footer.php' ?>
 
   <script>
-  highlightProduct(<?php echo $product_ID ?>)
+    highlightProduct(<?php echo $product_ID ?>)
   </script>
 </body>
 

@@ -29,7 +29,7 @@ if (isset($_SESSION["username"])) {
         20px;">
       </a>
       <span class="card-title center" style="font-size: 25px; font-weight:bold;">
-        <?php echo $name . " " . $category ?>
+        <?php echo $name ?>
       </span>
       <span class="card-title center" style="font-size: 20px; font-weight:bold;">
         Price: <span class="price">₱<?php echo $price ?></span>
@@ -45,9 +45,9 @@ if (isset($_SESSION["username"])) {
               <option disabled selected>Select Variants</option>
 
               <?php for ($i = 0; $i < count($variants); $i++) { ?>
-              <option value="<?php echo $variants[$i]["ID"] ?>">
-                <?php echo $variants[$i]["name"] ?>
-              </option>
+                <option value="<?php echo $variants[$i]["ID"] ?>">
+                  <?php echo $variants[$i]["name"] ?>
+                </option>
               <?php } ?>
 
             </select>
@@ -76,24 +76,24 @@ if (isset($_SESSION["username"])) {
 </div>
 
 <script>
-$("#<?php echo $id ?>").submit(function(event) {
-  event.preventDefault();
-  let data = $("#<?php echo $id ?>").serializeArray();
+  $("#<?php echo $id ?>").submit(function(event) {
+    event.preventDefault();
+    let data = $("#<?php echo $id ?>").serializeArray();
 
-  if (data[0].value == -1) {
-    M.toast({
-      html: "Please log in first!"
-    })
-    return
-  }
+    if (data[0].value == -1) {
+      M.toast({
+        html: "Please log in first!"
+      })
+      return
+    }
 
-  if (data.length != 3) {
-    M.toast({
-      html: "Please select a variant for the product first!"
-    })
-    return
-  }
+    if (data.length != 3) {
+      M.toast({
+        html: "Please select a variant for the product first!"
+      })
+      return
+    }
 
-  addToCart(<?php echo $user_ID ?>, data[1].value, data[2].value);
-});
+    addToCart(<?php echo $user_ID ?>, data[1].value, data[2].value);
+  });
 </script>
