@@ -23,6 +23,7 @@ $gcash_number = $_REQUEST["gcash_number"];
 $insertNewCheckout = "INSERT INTO checkout_items 
 (user_ID, name, address, contact_number, payment_method, total_quantity, total_price, shipping_fee) 
 VALUES ('$user_ID', '$name', '$address', '$contact_number', '$payment_method', '$total_quantity', '$total_price_payment', '$shipping_fee');";
+
 if ($conn->query($insertNewCheckout) === TRUE) {
   // GET the check-out items ID
   $checkout_ID = $conn->insert_id;

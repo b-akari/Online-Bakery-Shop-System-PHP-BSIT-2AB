@@ -4,48 +4,51 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 ?>
-<nav>
-  <div class="nav-wrapper" style="background-color:  #f59498;">
-    <a href="index.php" class="brand-logo center">
-      <img src="assets/images/logo.png" alt="" style="height: 5vh ;">
-    </a>
-    <a href="#" data-target="mobile-demo" class="sidenav-trigger">
-      <i class="material-icons">menu</i>
-    </a>
-    <ul class="right ">
-      <li data-target="add-to-cart" class="sidenav-trigger">
-        <a href="#">
-          <i class="material-icons">
-            shopping_cart
-          </i>
-        </a>
-      </li>
-    </ul>
-    <ul class="right hide-on-med-and-down">
-      <li><a href="All-products.php">All Products</a></li>
-      <!-- <li><a href="#">Best Seller</a></li> -->
-      <!-- Dropdown Trigger -->
-      <li>
-        <a class="dropdown-trigger" href="#!" data-target="category">
-          Category
-          <i class="material-icons right">arrow_drop_down</i>
-        </a>
-      </li>
-    </ul>
+<div class="navbar-fixed">
 
-    <ul class="hide-on-med-and-down account-status">
-      <?php if (!isset($_SESSION["username"])) { ?>
+  <nav>
+    <div class="nav-wrapper" style="background-color:  #f59498;">
+      <a href="index.php" class="brand-logo center">
+        <img src="assets/images/logo.png" alt="" style="height: 5vh ;">
+      </a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+        <i class="material-icons">menu</i>
+      </a>
+      <ul class="right ">
+        <li data-target="add-to-cart" class="sidenav-trigger">
+          <a href="#">
+            <i class="material-icons">
+              shopping_cart
+            </i>
+          </a>
+        </li>
+      </ul>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="All-products.php">All Products</a></li>
+        <!-- <li><a href="#">Best Seller</a></li> -->
+        <!-- Dropdown Trigger -->
+        <li>
+          <a class="dropdown-trigger" href="#!" data-target="category">
+            Category
+            <i class="material-icons right">arrow_drop_down</i>
+          </a>
+        </li>
+      </ul>
+
+      <ul class="hide-on-med-and-down account-status">
+        <?php if (!isset($_SESSION["username"])) { ?>
         <li><a href="register.php">Register</a></li>
         <li><a href="login.php">Login</a></li>
 
-      <?php } else { ?>
+        <?php } else { ?>
 
         <li><a href="login.php">Account: <?php echo $_SESSION["username"] ?></a></li>
         <li><a href="#" id="logout-btn">Logout</a></li>
-      <?php } ?>
-    </ul>
-  </div>
-</nav>
+        <?php } ?>
+      </ul>
+    </div>
+  </nav>
+</div>
 
 <!-- Side Navigator -->
 <ul class="sidenav " id="mobile-demo">
@@ -77,13 +80,13 @@ if (session_status() === PHP_SESSION_NONE) {
   <div class="divider"></div>
 
   <?php if (!isset($_SESSION["username"])) { ?>
-    <li><a href="register.php">Register</a></li>
-    <li><a href="login.php">Login</a></li>
+  <li><a href="register.php">Register</a></li>
+  <li><a href="login.php">Login</a></li>
 
   <?php } else { ?>
 
-    <li><a href="#">Account: <?php echo $_SESSION["username"] ?></a></li>
-    <li><a href="#" id="logout-btn">Logout</a></li>
+  <li><a href="#">Account: <?php echo $_SESSION["username"] ?></a></li>
+  <li><a href="#" id="logout-btn">Logout</a></li>
   <?php } ?>
 </ul>
 
@@ -95,15 +98,15 @@ if (session_status() === PHP_SESSION_NONE) {
 </ul>
 
 <script>
-  M.AutoInit()
-  $("#logout-btn").click((event) => {
-    $.get("DB/user.php?type=logout")
-      .done(res => {
-        window.location = "index.php";
-        getCart("null");
-        M.toast({
-          html: res
-        });
-      })
-  });
+M.AutoInit()
+$("#logout-btn").click((event) => {
+  $.get("DB/user.php?type=logout")
+    .done(res => {
+      window.location = "index.php";
+      getCart("null");
+      M.toast({
+        html: res
+      });
+    })
+});
 </script>
