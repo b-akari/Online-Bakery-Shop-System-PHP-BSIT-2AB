@@ -1,4 +1,7 @@
 <?php
+require_once '../unirest-php/src/Unirest.php';
+require_once '../api/auth.php';
+
 if (session_status() === PHP_SESSION_NONE) {
   session_start();
 }
@@ -8,6 +11,7 @@ if (isset($_SESSION["username"])) {
   $user_ID = "-1";
 }
 $id = $_REQUEST["ID"];
+$api_id = $_REQUEST["ID"];
 $name = $_REQUEST["product"];
 $category = $_REQUEST["category"];
 $img_name = $_REQUEST["img_name"];
@@ -15,8 +19,17 @@ $price = $_REQUEST["price"];
 $variants = $_REQUEST["variants"];
 $description = $_REQUEST["description"];
 
+// API GET product REQUEST 
+$api_result = Unirest\Request::get("http://localhost:3000/catalog/product/$api_id?api_key=$AUTH_KEY");
+$api_product = $api_result->body;
+
 ?>
 
+<style>
+.select-wrapper>ul>li>span {
+  color: #f59498;
+}
+</style>
 
 <div class="col s12 center">
   <h1><?php echo "$name $category" ?></h1>
@@ -31,24 +44,37 @@ $description = $_REQUEST["description"];
     <div class="col s12 m7 l6 ">
       <h4>Description</h4>
       <p><?php echo $description ?></p>
+
+      <!-- Price -->
       <h5>Price: <span><?php echo $price ?></span></h5>
+
+      <!-- Current Stocks -->
+      <h5>Stocks: <span>
+          <?php echo $api_product->product->stocks ?>
+        </span></h5>
+
     </div>
 
     <form class="row col s12 m7 l6">
       <input type="number" name="user_id" value=<?php echo $user_ID ?> class="hide">
       <input type="number" name="product_id" value=<?php echo $id ?> class="hide">
+
+      <!-- API Key ----------------------------------------------------------------- -->
+
       <div class="input-field col s12 m6">
         <select name="variant_id">
           <option disabled selected>Select Variants</option>
+
           <?php for ($i = 0; $i < count($variants); $i++) { ?>
           <option value="<?php echo $variants[$i]["ID"] ?>">
             <?php echo $variants[$i]["name"] ?>
           </option>
           <?php } ?>
+
         </select>
       </div>
       <div class="col s12 m7">
-        <button class="btn waves-effect waves-light " type="submit" name="action">
+        <button class="btn waves-effect waves-light black " type="submit" name="action">
           Add to cart
           <i class="material-icons right">send</i>
         </button>

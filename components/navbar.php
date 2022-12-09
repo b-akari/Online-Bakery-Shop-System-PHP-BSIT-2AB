@@ -4,8 +4,8 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 ?>
-<div class="navbar-fixed">
 
+<div class="navbar-fixed">
   <nav>
     <div class="nav-wrapper" style="background-color:  #f59498;">
       <a href="index.php" class="brand-logo center">

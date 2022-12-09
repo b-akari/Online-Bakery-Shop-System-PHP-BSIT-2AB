@@ -1,10 +1,14 @@
 <!-- ID, name, price, category, variants -->
 <?php
+require_once '../unirest-php/src/Unirest.php';
+require_once '../api/auth.php';
+
 if (session_status() === PHP_SESSION_NONE) {
   session_start();
 }
 
 $id = $_REQUEST["ID"];
+$api_id = $_REQUEST["ID "];
 $name = $_REQUEST["product"];
 $category = $_REQUEST["category"];
 $img_name = $_REQUEST["img_name"];
@@ -20,6 +24,9 @@ if (isset($_SESSION["username"])) {
   $isLogin = "false";
 }
 
+// API GET product REQUEST 
+$api_result = Unirest\Request::get("http://localhost:3000/catalog/product/$api_id?api_key=$AUTH_KEY");
+$api_product = $api_result->body;
 ?>
 <style>
 .select-wrapper>ul>li>span {
@@ -34,11 +41,22 @@ if (isset($_SESSION["username"])) {
         <img src="assets/product-img/<?php echo $category . "/" . $img_name ?>" style=" width: 100%; border-radius:
         20px;">
       </a>
+
+      <!-- Product Name -->
       <span class="card-title center" style="font-size: 25px; font-weight:bold;">
         <?php echo $name ?>
       </span>
+
+      <!-- Price -->
       <span class="card-title center" style="font-size: 20px; font-weight:bold;">
         Price: <span class="price">₱<?php echo $price ?></span>
+      </span>
+
+      <!-- Current Stocks -->
+      <span class="card-title center" style="font-size: 20px; font-weight:bold;">
+        Stock: <span class="stock">
+          <?php echo $api_product->product->stocks ?>
+        </span>
       </span>
 
       <div class="row">
@@ -47,6 +65,9 @@ if (isset($_SESSION["username"])) {
           <form id="<?php echo $id ?>">
             <input type="number" name="user_id" value=<?php echo $user_ID ?> class="hide">
             <input type="number" name="product_id" value=<?php echo $id ?> class="hide">
+
+            <!-- API KEY -->
+
             <select name="variant_id">
               <option disabled selected>Select Variants</option>
 

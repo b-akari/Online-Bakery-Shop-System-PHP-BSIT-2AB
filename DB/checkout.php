@@ -1,4 +1,8 @@
 <?php
+
+require_once '../unirest-php/src/Unirest.php';
+require_once '../api/auth.php';
+
 include 'init.php';
 $payment_method =  $_REQUEST["payment_method"];
 $user_ID =  $_REQUEST["user_ID"];
@@ -89,6 +93,19 @@ if ($cartItems->num_rows > 0) {
     $variantsID = $cartItem['variants_ID'];
     $totalPrice = $cartItem['total_price'];
     $prepareCheckoutItems->execute();
+
+    // API - Create Checkout -----------------------------------------------------------------
+    $headers = array('Accept' => 'application/json');
+    $data = array(
+      'total_price' => $totalPrice,
+      'quantity' => $quantity,
+      "product_id" => $productID,
+      "variant_id" => $variantsID
+    );
+
+    $body = Unirest\Request\Body::form($data);
+
+    $response = Unirest\Request::post("http://localhost:3000/catalog/checkout/create?api_key=$AUTH_KEY", $headers, $body);
   }
   $prepareCheckoutItems->close();
 } else {

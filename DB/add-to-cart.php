@@ -22,6 +22,7 @@ switch ($type) {
     }
 
     break;
+
   case 'get':
     $user_ID = $_REQUEST["user_ID"];
     $sql = "SELECT 
@@ -55,6 +56,7 @@ switch ($type) {
     }
 
     break;
+
   case 'delete':
     $addToCart_ID = $_REQUEST["addToCart_ID"];
     $sql = "DELETE FROM add_to_cart
@@ -66,6 +68,7 @@ switch ($type) {
       echo "Error removing: " . $conn->error;
     }
     break;
+
   case 'quantity':
     $cart_ID = $_REQUEST["cart_ID"];
     $quantity = $_REQUEST["quantity"];
@@ -77,6 +80,7 @@ switch ($type) {
       echo "Error updating record: " . $conn->error;
     }
     break;
+
   case 'get-quantity':
     $user_ID = $_REQUEST["user_ID"];
     $sql = "SELECT 
@@ -93,10 +97,12 @@ switch ($type) {
     $result = $conn->query($sql);
     echo json_encode($result->fetch_assoc());
     break;
+
   case 'checkout-list':
     $user_ID = $_REQUEST["user_ID"];
     $sql = "SELECT 
             add_to_cart.ID,
+            add_to_cart.product_ID,
             product.name AS product,
             category.name AS category,
             TRUNCATE(product.price * variants.price_multiplier, 2) AS base_price,
@@ -116,6 +122,7 @@ switch ($type) {
     $result = $conn->query($sql);
     echo json_encode($result->fetch_all(MYSQLI_ASSOC));
     break;
+
   case 'checkout-list-total':
     $user_ID = $_REQUEST["user_ID"];
     $sql = "SELECT 

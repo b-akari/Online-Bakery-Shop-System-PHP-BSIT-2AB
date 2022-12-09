@@ -47,7 +47,7 @@ $product_ID = $_REQUEST["product_ID"];
   <?php include 'components/footer.php' ?>
 
   <script>
-    highlightProduct(<?php echo $product_ID ?>)
+  highlightProduct(<?php echo $product_ID ?>);
   </script>
 </body>
 

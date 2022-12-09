@@ -6,7 +6,6 @@
         <h5>OUR COMMUNITY</h5>
         <ul>
           <li><a class="grey-text text-lighten-3" href="register.php">Registration</a></li>
-          <li><a class="grey-text text-lighten-3" href="our-team.php">Our Team</a></li>
         </ul>
       </div>
       <div class="col l4 offset-l2 s12">
@@ -14,9 +13,6 @@
         <ul>
           <li><a class="grey-text text-lighten-3" href="about.php">About Cookie Co.</a></li>
           <li><a class="grey-text text-lighten-3" href="faqs.php">Most FAQs</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Orders</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Careers</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Delivery</a></li>
         </ul>
       </div>
     </div>

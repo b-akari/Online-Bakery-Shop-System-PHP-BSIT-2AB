@@ -50,6 +50,7 @@ if (isset($_SESSION["username"])) {
               <th>Variant</th>
               <th>Base Price </th>
               <th>Quantity</th>
+              <th>Stocks</th>
               <th>Total Price</th>
             </tr>
           </thead>
@@ -249,6 +250,7 @@ if (isset($_SESSION["username"])) {
   <script>
   let currentUserID = <?php echo $user_ID ?>;
   displayCheckout(currentUserID);
+
   var elems = document.querySelectorAll('.modal');
   var instances = M.Modal.init(elems);
   $("#credit-card-form").hide()

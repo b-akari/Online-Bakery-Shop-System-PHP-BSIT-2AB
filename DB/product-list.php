@@ -34,6 +34,9 @@ switch ($type) {
         $row["variants"] = $variants;
         array_push($data["results"], $row);
       }
+
+      // API Get current stock info -----------------------------------------------------------------
+
       echo json_encode($data);
     } else {
       echo "null";
@@ -65,6 +68,9 @@ switch ($type) {
         $row["variants"] = $variants;
         array_push($data["results"], $row);
       }
+
+      // API Get current stock info -----------------------------------------------------------------
+
       echo json_encode($data);
     } else {
       echo "null";
